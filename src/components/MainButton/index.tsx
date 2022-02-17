@@ -2,9 +2,14 @@
 import React from 'react';
 import './style.scss';
 
-const index = (props: any) => {
+interface IProps {
+  setCounter: React.Dispatch<React.SetStateAction<number>>,
+  counter: number
+}
+
+const index = (props: IProps) => {
   const { setCounter, counter } = props;
-  return (<button type="button" onClick={() => setCounter(counter + 1)}>Contar</button>);
+  return <button className="Main-Button" type="button" onClick={() => setCounter(counter + 1)}>Contar</button>;
 };
 
 export default index;
