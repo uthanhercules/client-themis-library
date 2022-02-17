@@ -20,7 +20,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "import/extensions": "never",
+        "import/extensions": 0,
         "react/jsx-filename-extension": [
             1,
             {
