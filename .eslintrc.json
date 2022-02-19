@@ -21,6 +21,7 @@
     ],
     "rules": {
         "import/extensions": 0,
+        "import/no-unresolved": [{ "ignore": "./src" }],
         "react/jsx-filename-extension": [
             1,
             {
