@@ -39,6 +39,11 @@ const index = () => {
         <Link className="forgot-password" to="/recuperar-senha">Esqueci minha senha</Link>
         <button type="button" onClick={() => login()}>Entrar</button>
       </article>
+      <span className="made-with-love">
+        Feito com ♥
+        {' '}
+        <span>u.dev_</span>
+      </span>
     </main>
   );
 };

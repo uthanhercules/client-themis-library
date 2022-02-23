@@ -41,6 +41,11 @@ const index = () => {
         <Link className="return-login" to="/login">Retornar ao Login</Link>
         <button type="button" onClick={() => recoverPassword()}>Trocar Senha</button>
       </article>
+      <span className="made-with-love">
+        Feito com ♥
+        {' '}
+        <span>u.dev_</span>
+      </span>
     </main>
   );
 };
