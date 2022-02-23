@@ -6,6 +6,7 @@ const index = (props: any) => {
 
   return (
     <input
+      className="login-input"
       type={type}
       placeholder={placeholder}
       onChange={(e) => action(e.target.value)}

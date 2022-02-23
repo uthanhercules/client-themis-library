@@ -14,26 +14,31 @@ const index = () => {
   const [auth, setAuth] = useState(false);
 
   async function login(userLogin: string, psw: string) {
+    if (username.trim() === '') return toast.error('Usuário é um campo obrigatório');
+    if (password.trim() === '') return toast.error('Senha é um campo obrigatório');
     const { data, ok } = await ApiService.noAuthPost('/admin/login', { username: userLogin, password: psw });
 
     if (!ok) {
-      toast.error(data);
-      return;
+      return toast.error(data);
     }
 
     localStorage.setItem('userToken', data.token);
     setAuth(true);
-    toast.success('Login realizado com sucesso!');
+    return toast.success('Login realizado com sucesso!');
   }
 
   return (
     <main className="App-Login">
-      {auth ? <Redirect to="/dashboard" /> : <Redirect to="/login" />}
-      <h1>Login</h1>
-      <LoginInput type="text" placeholder="Usuário" action={setUsername} />
-      <LoginInput type="password" placeholder="Senha" action={setPassword} />
-      <Link className="forgot-password" to="/dashboard">Esqueci minha senha</Link>
-      <button type="button" onClick={() => login(username, password)}>Entrar</button>
+      <article className="login-container">
+        {auth ? <Redirect to="/dashboard" /> : <Redirect to="/login" />}
+        <h1>Login</h1>
+        <section className="login-inputs">
+          <LoginInput className="input" type="text" placeholder="Usuário" action={setUsername} />
+          <LoginInput className="input" type="password" placeholder="Senha" action={setPassword} />
+        </section>
+        <Link className="forgot-password" to="/recuperar-senha">Esqueci minha senha</Link>
+        <button type="button" onClick={() => login(username, password)}>Entrar</button>
+      </article>
     </main>
   );
 };
