@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Login from './pages/App-Login';
+import PasswordRecovery from './pages/App-PasswordRecovery';
 import Dashboard from './pages/App-Dashboard';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <main className="App">
         <Switch>
           <Route path={['/', '/login']} exact component={Login} />
+          <Route path="/recuperar-senha" component={PasswordRecovery} />
           <Route path={['/dashboard']} component={Dashboard} />
         </Switch>
       </main>

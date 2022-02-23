@@ -13,10 +13,10 @@ const index = () => {
   const [password, setPassword] = useState('');
   const [auth, setAuth] = useState(false);
 
-  async function login(userLogin: string, psw: string) {
+  async function login() {
     if (username.trim() === '') return toast.error('Usuário é um campo obrigatório');
     if (password.trim() === '') return toast.error('Senha é um campo obrigatório');
-    const { data, ok } = await ApiService.noAuthPost('/admin/login', { username: userLogin, password: psw });
+    const { data, ok } = await ApiService.noAuthPost('/admin/login', { username, password });
 
     if (!ok) {
       return toast.error(data);
@@ -30,14 +30,14 @@ const index = () => {
   return (
     <main className="App-Login">
       <article className="login-container">
-        {auth ? <Redirect to="/dashboard" /> : <Redirect to="/login" />}
+        {auth ? <Redirect to="/dashboard" /> : null}
         <h1>Login</h1>
         <section className="login-inputs">
           <LoginInput className="input" type="text" placeholder="Usuário" action={setUsername} />
           <LoginInput className="input" type="password" placeholder="Senha" action={setPassword} />
         </section>
         <Link className="forgot-password" to="/recuperar-senha">Esqueci minha senha</Link>
-        <button type="button" onClick={() => login(username, password)}>Entrar</button>
+        <button type="button" onClick={() => login()}>Entrar</button>
       </article>
     </main>
   );
