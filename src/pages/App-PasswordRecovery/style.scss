@@ -1,6 +1,6 @@
 @import '../../scss/colors.scss';
 
-.App-Login {
+.App-PasswordRecovery {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,18 +15,18 @@
     color: $success;
   }
 
-  .login-container {
+  .recovery-container {
     display: flex;
     flex-direction: column;
     width: 281px;
 
-    .login-inputs {
+    .recovery-inputs {
       display: flex;
       flex-direction: column;
       gap: 36px;
     }
 
-    .forgot-password {
+    .return-login {
       margin: 24px 0;
       font-size: 12px;
       color: $success;
@@ -55,4 +55,5 @@
       }
     }
   }
+
 }
