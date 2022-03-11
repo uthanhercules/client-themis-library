@@ -2,21 +2,21 @@
     cursor: pointer;
 
     button {
-        all:unset;
-        
+        all: unset;
+
         display: flex;
         align-items: center;
         justify-content: space-between;
-        
+
         div {
             width: 5px;
             height: 28px;
 
-            background-color: #20C997;
+            background-color: #20c997;
             border-radius: 0px 4px 4px 0px;
 
             margin-right: 34px;
-            }
+        }
 
         .Icon-SideMenu {
             width: 24px;

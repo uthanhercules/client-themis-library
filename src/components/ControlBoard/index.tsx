@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss'
+import './style.scss';
 
 interface IProps {
     src: string,
@@ -9,13 +9,15 @@ interface IProps {
 }
 
 const index = (props: IProps) => {
-    const { src, alt, span, color } = props
-    return (
-        <button className='Controller' style={{ backgroundColor: color }}>
-            <img className='Icon-ControlBoard' src={src} alt={alt} />
-            <span>{span}</span>
-        </button>
-    );
+  const {
+    src, alt, span, color,
+  } = props;
+  return (
+    <button type="button" className="Controller" style={{ backgroundColor: color }}>
+      <img className="Icon-ControlBoard" src={src} alt={alt} />
+      <span>{span}</span>
+    </button>
+  );
 };
 
 export default index;

@@ -5,7 +5,11 @@
 }
 
 html {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background-color: rgb(44, 48, 73);
 }
 
 .made-with-love {
@@ -14,6 +18,6 @@ html {
   color: #fff;
 
   span {
-    color: #5B9BD5;
+    color: #5b9bd5;
   }
 }

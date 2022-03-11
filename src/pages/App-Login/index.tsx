@@ -16,7 +16,7 @@ const index = () => {
   async function login() {
     if (username.trim() === '') return toast.error('Usuário é um campo obrigatório');
     if (password.trim() === '') return toast.error('Senha é um campo obrigatório');
-    const { data, ok } = await ApiService.noAuthPost('/admin/login', { login: username, password });
+    const { data, ok } = await ApiService.loginService('/admin/login', { login: username, password });
 
     if (!ok) {
       return toast.error(data);

@@ -1,5 +1,5 @@
 import React from 'react';
-import './style.scss'
+import './style.scss';
 
 interface IProps {
   src: string,
@@ -8,12 +8,12 @@ interface IProps {
 }
 
 const index = (props: IProps) => {
-  const { src, alt, control } = props
+  const { src, alt, control } = props;
   return (
-    <nav className='Subject-SideMenu'>
-      <button>
-        <div className='Active-SideMenu'></div>
-        <img className='Icon-SideMenu' src={src} alt={alt} />
+    <nav className="Subject-SideMenu">
+      <button type="button">
+        <div className="Active-SideMenu" />
+        <img className="Icon-SideMenu" src={src} alt={alt} />
         <span>{control}</span>
       </button>
     </nav>
