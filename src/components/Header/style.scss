@@ -1,0 +1,23 @@
+.Header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .GoingOut {
+        all: unset;
+        cursor: pointer;
+        
+        width: 123px;
+        height: 31px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+
+        background: #FF4D4F;
+        border-radius: 4px;
+
+        color: #F9F9FB;
+    }
+}

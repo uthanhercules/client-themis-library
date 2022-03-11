@@ -1,0 +1,127 @@
+body {
+    background-color: rgb(44, 48, 73);
+
+    .Side-Menu {
+    width: 260px;
+    height: 100vh;
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    background-color: #272B41;
+    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 0px 12px 12px 0px;
+    padding: 36px 0px 25px;
+
+    color: #F9F9FB;
+
+    .Top-SideMenu {
+        display: flex;
+        flex-direction: column;
+        gap: 36px;
+
+        .Logo-SideMenu {
+            padding: 0px 40px;
+        }
+    }
+
+    .Bottom-SideMenu {
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+        align-items: center; 
+
+        .by {
+            color: #2C99FF;
+        }
+    }
+
+    }
+
+    .Container-Content {
+        padding: 19px 41px 31px 310px;
+
+        h1 {
+            font-family: Inter;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: 29px;
+            color: #20C997;
+
+            margin-bottom: 53px;
+        }
+
+        .Controlboard {
+            margin-bottom: 53px;
+
+            .Each-Controlboard {
+                display: flex;
+                align-items: center;
+                gap: 34px;
+            }
+        }
+
+        .Latest-Lawsuit-Updates {
+
+            h2 {
+                font-family: Inter;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 24px;
+                line-height: 29px;
+                color: #20C997;
+
+                margin-bottom: 9px;
+            }
+
+            .Menu-Lawsuit {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                padding: 7px 23px;
+                background: rgba(0, 0, 0, 0.3);
+                border-radius: 4px 4px 0px 0px;
+
+                font-family: Inter;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 15px;
+                letter-spacing: 0.295em;
+                text-transform: uppercase;
+                color: #FA8B0C;
+
+                margin-bottom: 7px;
+
+                .Number {
+                    width: 182.83px;
+                    margin-right: 50px
+                }
+
+                .Client {
+                    width: 175px;
+                    margin-right: 32px
+                }
+
+                .Lawsuit-Name {
+                    width: 263px;
+                    margin-right: 25px;
+                }
+
+                .Last-Update {
+                    width: 172.56px;
+                }
+            }
+
+            .Lawsuit-Data {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+        }
+    }
+}

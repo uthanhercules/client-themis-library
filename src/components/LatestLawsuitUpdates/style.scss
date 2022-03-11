@@ -1,0 +1,39 @@
+.Lawsuit {
+    height: 40.63px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0px 23px;
+    background: rgba(31, 34, 51, 0.8);
+
+    text-align: start;
+
+    .text-blue {
+        color: #2C99FF;
+    }
+
+    .text-white {
+        color: #FFFFFF;
+    }
+
+    .Number {
+        width: 182.83px;
+        margin-right: 50px
+    }
+
+    .Client {
+        width: 175px;
+        margin-right: 32px
+    }
+
+    .Lawsuit-Name {
+        width: 263px;
+        margin-right: 25px;
+    }
+
+    .Last-Update {
+        width: 172.56px;
+    }
+}
