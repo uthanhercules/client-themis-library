@@ -5,14 +5,14 @@ interface IProps {
     src: string,
     alt: string,
     span: string,
-    cor: string
+    color: string
 }
 
 const index = (props: IProps) => {
-    const { src, alt, span, cor } = props
+    const { src, alt, span, color } = props
     return (
-        <button className='controller' style={{ backgroundColor: cor }}>
-            <img src={src} alt={alt} />
+        <button className='Controller' style={{ backgroundColor: color }}>
+            <img className='Icon-ControlBoard' src={src} alt={alt} />
             <span>{span}</span>
         </button>
     );

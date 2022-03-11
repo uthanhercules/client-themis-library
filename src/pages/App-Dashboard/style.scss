@@ -1,6 +1,5 @@
 body {
     background-color: rgb(44, 48, 73);
-    padding-right: 40px;
 
     .Side-Menu {
     width: 260px;
@@ -18,27 +17,31 @@ body {
 
     color: #F9F9FB;
 
-    .top {
+    .Top-SideMenu {
         display: flex;
         flex-direction: column;
         gap: 36px;
 
-        .logo {
+        .Logo-SideMenu {
             padding: 0px 40px;
         }
     }
 
-    .bottom {
+    .Bottom-SideMenu {
         display: flex;
         flex-direction: column;
         justify-items: center;
-        align-items: center;
+        align-items: center; 
+
+        .by {
+            color: #2C99FF;
+        }
     }
 
     }
 
-    .Content {
-        margin-left: 310px;
+    .Container-Content {
+        padding: 19px 41px 31px 310px;
 
         h1 {
             font-family: Inter;
@@ -48,16 +51,20 @@ body {
             line-height: 29px;
             color: #20C997;
 
-            margin-bottom: 35px;
+            margin-bottom: 53px;
         }
 
         .Controlboard {
-            display: flex;
-            align-items: center;
-            gap: 34px;
+            margin-bottom: 53px;
+
+            .Each-Controlboard {
+                display: flex;
+                align-items: center;
+                gap: 34px;
+            }
         }
 
-        .Lawsuit-Updates {
+        .Latest-Lawsuit-Updates {
 
             h2 {
                 font-family: Inter;
@@ -67,8 +74,7 @@ body {
                 line-height: 29px;
                 color: #20C997;
 
-                margin: 35px 0px 9px;
-                
+                margin-bottom: 9px;
             }
 
             .Menu-Lawsuit {
@@ -88,6 +94,27 @@ body {
                 letter-spacing: 0.295em;
                 text-transform: uppercase;
                 color: #FA8B0C;
+
+                margin-bottom: 7px;
+
+                .Number {
+                    width: 182.83px;
+                    margin-right: 50px
+                }
+
+                .Client {
+                    width: 175px;
+                    margin-right: 32px
+                }
+
+                .Lawsuit-Name {
+                    width: 263px;
+                    margin-right: 25px;
+                }
+
+                .Last-Update {
+                    width: 172.56px;
+                }
             }
 
             .Lawsuit-Data {

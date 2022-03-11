@@ -1,4 +1,4 @@
-.controller {
+.Controller {
     all: unset;
     cursor: pointer;
     
@@ -8,12 +8,12 @@
 
     width: 181px;
     height: 168px;
+    padding-bottom: 4px;
     border-radius: 4px;
-    padding: 4px 0px;
 
     color: #F9F9FB;
 
-    img {
-        margin: 50px 0px 30px;
+    .Icon-ControlBoard {
+        margin: 54px 65px 31px;
     }
 }

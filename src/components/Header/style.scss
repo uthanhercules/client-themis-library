@@ -1,34 +1,23 @@
 .Header {
-    width: 100vw;
-    
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    gap: 10px;
 
-    button {
+    .GoingOut {
         all: unset;
         cursor: pointer;
+        
+        width: 123px;
+        height: 31px;
 
-        margin-top: 19px;
-    }
-
-    .night {
-        padding: 7px;
-        background: #2C99FF;
-        border-radius: 4px;
-    }
-
-    .getout {
         display: flex;
+        justify-content: center;
+        align-items: center;
         gap: 16px;
 
-        padding: 7px 32px;
         background: #FF4D4F;
         border-radius: 4px;
 
         color: #F9F9FB;
-
-        margin-right: 40px;
     }
 }
