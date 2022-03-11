@@ -16,7 +16,7 @@ function App() {
         <Switch>
           <Route path={['/', '/login']} exact component={Login} />
           <Route path="/recuperar-senha" component={PasswordRecovery} />
-          <Route path={['/dashboard']} component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
         </Switch>
       </main>
     </Router>
