@@ -29,6 +29,8 @@
         flex-direction: column;
         justify-items: center;
         align-items: center;
+        font-size: 12px;
+        font-weight: 300;
 
         .by {
             color: #5b9bd5;
@@ -74,7 +76,6 @@
 
         .Menu-Lawsuit {
             display: flex;
-            justify-content: space-between;
             align-items: center;
 
             padding: 7px 23px;
@@ -93,22 +94,18 @@
             margin-bottom: 7px;
 
             .Number {
-                width: 182.83px;
+                width: 172.83px;
                 margin-right: 50px;
             }
 
             .Client {
-                width: 175px;
+                width: 165px;
                 margin-right: 32px;
             }
 
             .Lawsuit-Name {
-                width: 263px;
+                width: 253px;
                 margin-right: 25px;
-            }
-
-            .Last-Update {
-                width: 172.56px;
             }
         }
 

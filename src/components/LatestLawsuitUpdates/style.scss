@@ -2,13 +2,16 @@
     height: 40.63px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
 
     padding: 0px 23px;
     background: rgba(31, 34, 51, 0.8);
 
     text-align: start;
+
+    span {
+        font-size: 14px;
+    }
 
     .text-blue {
         color: #2c99ff;
@@ -19,21 +22,21 @@
     }
 
     .Number {
-        width: 182.83px;
+        width: 172.83px;
         margin-right: 50px;
     }
 
     .Client {
-        width: 175px;
+        width: 165px;
         margin-right: 32px;
     }
 
     .Lawsuit-Name {
-        width: 263px;
+        width: 253px;
         margin-right: 25px;
     }
 
     .Last-Update {
-        width: 172.56px;
+        width: 162.56px;
     }
 }
