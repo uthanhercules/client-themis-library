@@ -1,43 +1,3 @@
-.Side-Menu {
-    width: 260px;
-    height: 100vh;
-    position: fixed;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    background-color: #272b41;
-    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 12px 12px 0px;
-    padding: 36px 0px 25px;
-
-    color: #f9f9fb;
-
-    .Top-SideMenu {
-        display: flex;
-        flex-direction: column;
-        gap: 36px;
-
-        .Logo-SideMenu {
-            padding: 0px 40px;
-        }
-    }
-
-    .Bottom-SideMenu {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        align-items: center;
-        font-size: 12px;
-        font-weight: 300;
-
-        .by {
-            color: #5b9bd5;
-        }
-    }
-}
-
 .Container-Content {
     padding: 19px 41px 31px 310px;
 
@@ -75,8 +35,10 @@
         }
 
         .Menu-Lawsuit {
-            display: flex;
-            align-items: center;
+            display: grid;
+            grid-template-areas: "number client name update";
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 1rem;
 
             padding: 7px 23px;
             background: rgba(0, 0, 0, 0.3);
@@ -94,18 +56,19 @@
             margin-bottom: 7px;
 
             .Number {
-                width: 172.83px;
-                margin-right: 50px;
+                grid-area: number;
             }
 
             .Client {
-                width: 165px;
-                margin-right: 32px;
+                grid-area: client;
             }
 
             .Lawsuit-Name {
-                width: 253px;
-                margin-right: 25px;
+                grid-area: name;
+            }
+
+            .Last-Update {
+                grid-area: update;
             }
         }
 

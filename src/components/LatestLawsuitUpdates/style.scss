@@ -1,8 +1,11 @@
 .Lawsuit {
     height: 40.63px;
 
-    display: flex;
+    display: grid;
+    grid-template-areas: "number client name update";
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: center;
+    gap: 1rem;
 
     padding: 0px 23px;
     background: rgba(31, 34, 51, 0.8);
@@ -22,21 +25,18 @@
     }
 
     .Number {
-        width: 172.83px;
-        margin-right: 50px;
+        grid-area: number;
     }
 
     .Client {
-        width: 165px;
-        margin-right: 32px;
+        grid-area: client;
     }
 
     .Lawsuit-Name {
-        width: 253px;
-        margin-right: 25px;
+        grid-area: name;
     }
 
     .Last-Update {
-        width: 162.56px;
+        grid-area: update;
     }
 }

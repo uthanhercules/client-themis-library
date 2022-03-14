@@ -1,41 +1,15 @@
 import React from 'react';
 import './style.scss';
 
-import SideMenu from '../../components/SideMenu';
 import Header from '../../components/Header';
 import ControlBoard from '../../components/ControlBoard';
 import LatestLawsuitUpdates from '../../components/LatestLawsuitUpdates';
-
-import ControlboardIconSidemenu from '../../assets/controlboard.svg';
-import LawsuitIconSidemenu from '../../assets/lawsuit.svg';
-import ClientsIconSidemenu from '../../assets/clients.svg';
 
 import NewLawsuitIconControlBoard from '../../assets/newlawsuit.svg';
 import NewNlientIconControlBoard from '../../assets/newclient.svg';
 import EditMyDataIconControlBoard from '../../assets/editmydata.svg';
 
 const index = () => {
-  const menu = [
-    {
-      id: 1,
-      src: ControlboardIconSidemenu,
-      alt: 'Icon do painel de controle',
-      control: 'Painel de Controle',
-    },
-    {
-      id: 2,
-      src: LawsuitIconSidemenu,
-      alt: 'Icon dos processos',
-      control: 'Processos',
-    },
-    {
-      id: 3,
-      src: ClientsIconSidemenu,
-      alt: 'Icon do cliente',
-      control: 'Clientes',
-    },
-  ];
-
   const board = [
     {
       id: 1,
@@ -95,27 +69,6 @@ const index = () => {
 
   return (
     <main className="App-Dashboard">
-      <aside className="Side-Menu">
-        <section className="Top-SideMenu">
-          <span className="Logo-SideMenu">logo</span>
-          {menu.map((eachElement) => (
-            <SideMenu
-              key={eachElement.id}
-              src={eachElement.src}
-              alt={eachElement.alt}
-              control={eachElement.control}
-            />
-          ))}
-        </section>
-        <section className="Bottom-SideMenu">
-          <span>
-            Feito com ♥ por
-            {' '}
-            <span className="by"> u.dev_</span>
-          </span>
-        </section>
-      </aside>
-      {/** */}
       <article className="Container-Content">
         <Header />
         <section className="Controlboard">
@@ -132,7 +85,7 @@ const index = () => {
             ))}
           </nav>
         </section>
-        {/** */}
+        {/* */}
         <section className="Latest-Lawsuit-Updates">
           <h2>Últimos processos atualizados</h2>
           <article>
