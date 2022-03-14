@@ -12,13 +12,12 @@ import Dashboard from './pages/App-Dashboard';
 import MainAsideMenu from './components/MainAsideMenu';
 
 function App() {
-  const actualRoute = window.location.pathname;
-
+  // TODO - Filter routes to show the menu only for Auth Users
   return (
     <Router>
       <ToastContainer theme="dark" />
       <main className="App">
-        { actualRoute === '/' || actualRoute === '/login' ? null : <MainAsideMenu /> }
+        <MainAsideMenu />
         <Switch>
           <Route path={['/', '/login']} exact component={Login} />
           <Route path="/recuperar-senha" component={PasswordRecovery} />
