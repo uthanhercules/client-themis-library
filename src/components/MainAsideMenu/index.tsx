@@ -68,5 +68,4 @@ const index = () => (
     </section>
   </aside>
 );
-
 export default index;

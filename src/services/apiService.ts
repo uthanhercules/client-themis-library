@@ -39,7 +39,22 @@ async function changePasswordService(point: string, data: IChangePassword) {
   return { data: responseData, ok: response.ok };
 }
 
+async function verifyLogin(point: string, userToken: any) {
+  const response = await fetch(BASE_URL + point, {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+      userToken,
+    },
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
 export default {
   loginService,
   changePasswordService,
+  verifyLogin,
 };

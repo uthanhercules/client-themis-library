@@ -11,6 +11,11 @@ import NewNlientIconControlBoard from '../../assets/newclient.svg';
 import EditMyDataIconControlBoard from '../../assets/editmydata.svg';
 
 const index = () => {
+  const userToken = localStorage.getItem('userToken');
+  if (!userToken) {
+    window.location.href = '/login';
+  }
+
   const board = [
     {
       id: 1,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.scss';
 
 import ApiService from '../../services/apiService';
@@ -11,7 +11,6 @@ const { useState } = React;
 const index = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [auth, setAuth] = useState(false);
 
   async function login() {
     if (username.trim() === '') return toast.error('Usuário é um campo obrigatório');
@@ -23,14 +22,13 @@ const index = () => {
     }
 
     localStorage.setItem('userToken', data.token);
-    setAuth(true);
-    return toast.success('Login realizado com sucesso!');
+    toast.success('Login realizado com sucesso!');
+    return setTimeout(() => { window.location.href = '/dashboard'; }, 2000);
   }
 
   return (
     <main className="App-Login">
       <article className="login-container">
-        {auth ? <Redirect to="/dashboard" /> : null}
         <h1>Login</h1>
         <section className="login-inputs">
           <LoginInput className="input" type="text" placeholder="Usuário" action={setUsername} />
