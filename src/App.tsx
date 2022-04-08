@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import Outlet from './routes/outlet';
-import MainAsideMenu from './components/MainAsideMenu';
+import MainAsideMenu from './shared/components/MainAsideMenu';
 
 function App() {
   const [auth, setAuth] = useState(false);

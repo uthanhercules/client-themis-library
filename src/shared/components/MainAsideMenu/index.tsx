@@ -12,7 +12,7 @@ const menu = [
     src: ControlboardIconSidemenu,
     alt: 'Icon do painel de controle',
     control: 'Painel de Controle',
-    path: '/dashboard',
+    path: '/painel',
   },
   {
     id: 2,

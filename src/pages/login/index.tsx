@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
-import ApiService from '../../services/apiService';
-import LoginInput from '../../components/LoginInput';
+import ApiService from '../../shared/services/accountServices';
+import LoginInput from '../../shared/components/LoginInput';
 
 const { useState, useEffect } = React;
 
@@ -20,7 +20,7 @@ const index = () => {
   async function login() {
     if (username.trim() === '') return toast.error('Usuário é um campo obrigatório');
     if (password.trim() === '') return toast.error('Senha é um campo obrigatório');
-    const { data, ok } = await ApiService.loginService('/admin/login', { login: username, password });
+    const { data, ok } = await ApiService.loginService({ login: username, password });
 
     if (!ok) {
       return toast.error(data);
@@ -28,7 +28,7 @@ const index = () => {
 
     localStorage.setItem('userToken', data.token);
     toast.success('Login realizado com sucesso!');
-    return setTimeout(() => { window.location.href = '/dashboard'; }, 2000);
+    return setTimeout(() => { window.location.href = '/painel'; }, 2000);
   }
 
   return (

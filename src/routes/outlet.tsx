@@ -3,9 +3,9 @@ import {
   Routes, Outlet, Route, Navigate,
 } from 'react-router-dom';
 
-import Login from '../pages/App-Login';
-import PasswordRecovery from '../pages/App-PasswordRecovery';
-import Dashboard from '../pages/App-Dashboard';
+import Login from '../pages/login';
+import PasswordRecovery from '../pages/passwordRecovery';
+import Dashboard from '../pages/dashboard';
 
 function ProtectedRoutes({ redirectTo }: { redirectTo: string }) {
   const isAuth = localStorage.getItem('userToken');

@@ -3,8 +3,8 @@ import { toast } from 'react-toastify';
 import { Link, Navigate } from 'react-router-dom';
 import './style.scss';
 
-import ApiService from '../../services/apiService';
-import LoginInput from '../../components/LoginInput';
+import ApiService from '../../shared/services/accountServices';
+import LoginInput from '../../shared/components/LoginInput';
 
 const { useState } = React;
 
@@ -18,7 +18,9 @@ const index = () => {
     if (username.trim() === '') return toast.error('Usuário é um campo obrigatório');
     if (password.trim() === '') return toast.error('Nova Senha é um campo obrigatório');
     if (recoveryKey.trim() === '') return toast.error('Código de Recuperação é um campo obrigatório');
-    const { data, ok } = await ApiService.changePasswordService('/admin/new-password', { login: username, password, recoveryKey });
+    const { data, ok } = await ApiService.changePasswordService({
+      login: username, password, recoveryKey,
+    });
 
     if (!ok) {
       return toast.error(data);

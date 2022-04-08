@@ -1,13 +1,13 @@
 import React from 'react';
 import './style.scss';
 
-import Header from '../../components/Header';
-import ControlBoard from '../../components/ControlBoard';
-import LatestLawsuitUpdates from '../../components/LatestLawsuitUpdates';
+import Header from '../../shared/components/Header';
+import ControlBoard from '../../shared/components/ControlBoard';
+import LatestLawsuitUpdates from '../../shared/components/LatestLawsuitUpdates';
 
-import NewLawsuitIconControlBoard from '../../assets/newlawsuit.svg';
-import NewNlientIconControlBoard from '../../assets/newclient.svg';
-import EditMyDataIconControlBoard from '../../assets/editmydata.svg';
+import NewLawsuitIconControlBoard from '../../shared/assets/newlawsuit.svg';
+import NewNlientIconControlBoard from '../../shared/assets/newclient.svg';
+import EditMyDataIconControlBoard from '../../shared/assets/editmydata.svg';
 
 const index = () => {
   const board = [
