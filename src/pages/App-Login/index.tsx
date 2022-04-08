@@ -6,9 +6,14 @@ import './style.scss';
 import ApiService from '../../services/apiService';
 import LoginInput from '../../components/LoginInput';
 
-const { useState } = React;
+const { useState, useEffect } = React;
 
 const index = () => {
+  useEffect(() => {
+    const isAuth = localStorage.getItem('userToken');
+    if (isAuth) window.location.href = '/painel';
+  }, []);
+
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

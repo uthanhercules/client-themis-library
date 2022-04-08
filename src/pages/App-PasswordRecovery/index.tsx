@@ -1,6 +1,6 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { Link, Redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import './style.scss';
 
 import ApiService from '../../services/apiService';
@@ -30,7 +30,7 @@ const index = () => {
 
   return (
     <main className="App-PasswordRecovery">
-      {newPassword ? <Redirect to="/" /> : null}
+      {newPassword ? <Navigate to="/" /> : null}
       <article className="recovery-container">
         <h1>Recuperar Senha</h1>
         <section className="recovery-inputs">

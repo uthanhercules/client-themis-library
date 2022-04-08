@@ -44,8 +44,6 @@ const index = () => (
       {menu.map((eachElement) => (
         <NavLink
           to={eachElement.path}
-          exact
-          activeClassName="activeRoute"
           style={linkStyle}
           key={eachElement.id}
         >

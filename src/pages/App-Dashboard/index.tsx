@@ -1,6 +1,5 @@
 import React from 'react';
 import './style.scss';
-// import { TextField } from '@material-ui/core';
 
 import Header from '../../components/Header';
 import ControlBoard from '../../components/ControlBoard';
@@ -11,11 +10,6 @@ import NewNlientIconControlBoard from '../../assets/newclient.svg';
 import EditMyDataIconControlBoard from '../../assets/editmydata.svg';
 
 const index = () => {
-  const userToken = localStorage.getItem('userToken');
-  if (!userToken) {
-    window.location.href = '/login';
-  }
-
   const board = [
     {
       id: 1,
