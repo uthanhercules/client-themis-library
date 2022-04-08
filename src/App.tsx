@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import './App.scss';
+import './shared/scss/global.scss';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
