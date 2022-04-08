@@ -1,14 +1,8 @@
 import React from 'react';
 import './style.scss';
+import { IFiveProcedures } from '../../types/componentsTypes';
 
-interface IProps {
-    identificador: string,
-    name: string,
-    lawsuit: string,
-    lastupdate: string
-}
-
-const index = (props: IProps) => {
+const index = (props: IFiveProcedures) => {
   const {
     identificador, name, lawsuit, lastupdate,
   } = props;

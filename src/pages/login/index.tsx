@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
 import './style.scss';
 
 import ApiService from '../../shared/services/accountServices';
 import LoginInput from '../../shared/components/LoginInput';
-
-const { useState, useEffect } = React;
 
 const index = () => {
   useEffect(() => {

@@ -1,14 +1,8 @@
 import React from 'react';
 import './style.scss';
+import { IControlBoard } from '../../types/componentsTypes';
 
-interface IProps {
-    src: string,
-    alt: string,
-    span: string,
-    color: string
-}
-
-const index = (props: IProps) => {
+const index = (props: IControlBoard) => {
   const {
     src, alt, span, color,
   } = props;

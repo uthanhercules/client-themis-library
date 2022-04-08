@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import { Link, Navigate } from 'react-router-dom';
 import './style.scss';
 
 import ApiService from '../../shared/services/accountServices';
 import LoginInput from '../../shared/components/LoginInput';
-
-const { useState } = React;
 
 const index = () => {
   const [username, setUsername] = useState('');
