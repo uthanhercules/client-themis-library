@@ -1,3 +1,5 @@
+@import "../../shared/scss/variables.scss";
+
 .Container-Content {
     padding: 19px 41px 31px 310px;
 
@@ -7,7 +9,7 @@
         font-weight: bold;
         font-size: 24px;
         line-height: 29px;
-        color: #20c997;
+        color: $success;
 
         margin-bottom: 53px;
     }
@@ -29,7 +31,7 @@
             font-weight: bold;
             font-size: 24px;
             line-height: 29px;
-            color: #20c997;
+            color: $success;
 
             margin-bottom: 9px;
         }
@@ -51,7 +53,7 @@
             line-height: 15px;
             letter-spacing: 0.295em;
             text-transform: uppercase;
-            color: #fa8b0c;
+            color: $attention;
 
             margin-bottom: 7px;
 

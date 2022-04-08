@@ -1,3 +1,5 @@
+@import "../../shared/scss/variables.scss";
+
 .Controller {
     all: unset;
     cursor: pointer;
@@ -11,7 +13,7 @@
     padding-bottom: 4px;
     border-radius: 4px;
 
-    color: #f9f9fb;
+    color: $ice-background;
 
     span {
         font-weight: 600;

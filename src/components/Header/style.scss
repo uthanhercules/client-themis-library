@@ -1,3 +1,5 @@
+@import "../../shared/scss/variables.scss";
+
 .Header {
     display: flex;
     justify-content: flex-end;
@@ -15,10 +17,10 @@
         align-items: center;
         gap: 16px;
 
-        background: #ff4d4f;
+        background: $error;
         border-radius: 4px;
 
-        color: #f9f9fb;
+        color: $ice-background;
 
         span {
             font-size: 14px;

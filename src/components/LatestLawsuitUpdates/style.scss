@@ -1,3 +1,5 @@
+@import "../../shared/scss/variables.scss";
+
 .Lawsuit {
     height: 40.63px;
 
@@ -17,11 +19,11 @@
     }
 
     .text-blue {
-        color: #2c99ff;
+        color: $secondary-blue;
     }
 
     .text-white {
-        color: #ffffff;
+        color: #fff;
     }
 
     .Number {
