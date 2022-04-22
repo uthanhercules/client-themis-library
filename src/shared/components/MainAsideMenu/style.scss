@@ -1,80 +1,80 @@
 @import "../../scss/variables.scss";
 
 .Side-Menu {
-    width: 260px;
-    height: 100vh;
-    position: fixed;
+  width: 260px;
+  height: 100vh;
+  position: fixed;
 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  background-color: #272b41;
+  box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 12px 12px 0px;
+  padding: 36px 0px 25px;
+
+  color: $ice-background;
+
+  .Top-SideMenu {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 36px;
 
-    background-color: #272b41;
-    box-shadow: 3px 0px 10px rgba(0, 0, 0, 0.25);
-    border-radius: 0px 12px 12px 0px;
-    padding: 36px 0px 25px;
-
-    color: $ice-background;
-
-    .Top-SideMenu {
-        display: flex;
-        flex-direction: column;
-        gap: 36px;
-
-        .Logo-SideMenu {
-            padding: 0px 40px;
-        }
+    .Logo-SideMenu {
+      padding: 0px 40px;
     }
+  }
 
-    .Bottom-SideMenu {
-        display: flex;
-        flex-direction: column;
-        justify-items: center;
-        align-items: center;
-        font-size: 12px;
-        font-weight: 300;
+  .Bottom-SideMenu {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 300;
 
-        .by {
-            color: $udev-blue;
-        }
+    .by {
+      color: $udev-blue;
     }
+  }
 }
 
 .activeRoute {
-    .Active-SideMenu {
-        opacity: 1;
-    }
+  .Active-SideMenu {
+    opacity: 1;
+  }
 }
 
 .Subject-SideMenu {
-    cursor: pointer;
+  cursor: pointer;
 
-    button {
-        all: unset;
+  button {
+    all: unset;
 
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-        div {
-            opacity: 0;
-            width: 5px;
-            height: 28px;
+    div {
+      opacity: 0;
+      width: 5px;
+      height: 28px;
 
-            background-color: $success;
-            border-radius: 0px 4px 4px 0px;
+      background-color: $success;
+      border-radius: 0px 4px 4px 0px;
 
-            margin-right: 34px;
-        }
-
-        span {
-            font-size: 14px;
-        }
-
-        .Icon-SideMenu {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-        }
+      margin-right: 34px;
     }
+
+    span {
+      font-size: 14px;
+    }
+
+    .Icon-SideMenu {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+    }
+  }
 }

@@ -1,69 +1,69 @@
-import React from 'react';
-import './style.scss';
+import React from "react";
+import "./style.scss";
 
-import Header from '../../shared/components/Header';
-import ControlBoard from '../../shared/components/ControlBoard';
-import LatestLawsuitUpdates from '../../shared/components/LatestLawsuitUpdates';
+import Header from "../../shared/components/Header";
+import ControlBoard from "../../shared/components/ControlBoard";
+import LatestLawsuitUpdates from "../../shared/components/LatestLawsuitUpdates";
 
-import NewLawsuitIconControlBoard from '../../shared/assets/newlawsuit.svg';
-import NewNlientIconControlBoard from '../../shared/assets/newclient.svg';
-import EditMyDataIconControlBoard from '../../shared/assets/editmydata.svg';
+import NewLawsuitIconControlBoard from "../../shared/assets/newlawsuit.svg";
+import NewNlientIconControlBoard from "../../shared/assets/newclient.svg";
+import EditMyDataIconControlBoard from "../../shared/assets/editmydata.svg";
 
 const index = () => {
   const board = [
     {
       id: 1,
       src: NewLawsuitIconControlBoard,
-      alt: 'Icon para novo processo',
-      span: 'Novo Processo',
-      color: '#2C99FF',
+      alt: "Icon para novo processo",
+      span: "Novo Processo",
+      color: "#2C99FF",
     },
     {
       id: 2,
       src: NewNlientIconControlBoard,
-      alt: 'Icon de novo cliente',
-      span: 'Novo Cliente',
-      color: '#20C997',
+      alt: "Icon de novo cliente",
+      span: "Novo Cliente",
+      color: "#20C997",
     },
     {
       id: 3,
       src: EditMyDataIconControlBoard,
-      alt: 'Icon para edição de dados',
-      span: 'Editar meus Dados',
-      color: '#FA8B0C',
+      alt: "Icon para edição de dados",
+      span: "Editar meus Dados",
+      color: "#FA8B0C",
     },
   ];
 
   const database = [
     {
-      identificador: '12325678901234567890',
-      name: 'Malu Costa',
-      lawsuit: 'Lorem ipsum porta commodo',
-      lastupdate: '02 de Janeiro de 2022',
+      identificador: "12325678901234567890",
+      name: "Malu Costa",
+      lawsuit: "Lorem ipsum porta commodo",
+      lastupdate: "02 de Janeiro de 2022",
     },
     {
-      identificador: '12345673901234567890',
-      name: 'Aurora Carvalho',
-      lawsuit: 'Lorem ipsum porta commodo',
-      lastupdate: '12 de Dezembro de 2021',
+      identificador: "12345673901234567890",
+      name: "Aurora Carvalho",
+      lawsuit: "Lorem ipsum porta commodo",
+      lastupdate: "12 de Dezembro de 2021",
     },
     {
-      identificador: '12345678961234567890',
-      name: 'Caroline Dias',
-      lawsuit: 'Lorem ipsum porta commodo',
-      lastupdate: '07 de Setembro de 2021',
+      identificador: "12345678961234567890",
+      name: "Caroline Dias",
+      lawsuit: "Lorem ipsum porta commodo",
+      lastupdate: "07 de Setembro de 2021",
     },
     {
-      identificador: '12345678901235567890',
-      name: 'Cauê Aragão',
-      lawsuit: 'Lorem ipsum porta commodo',
-      lastupdate: '26 de Abril de 2021',
+      identificador: "12345678901235567890",
+      name: "Cauê Aragão",
+      lawsuit: "Lorem ipsum porta commodo",
+      lastupdate: "26 de Abril de 2021",
     },
     {
-      identificador: '12345678901234867890',
-      name: 'Alexia Mariana',
-      lawsuit: 'Lorem ipsum porta commodo',
-      lastupdate: '11 de Janeiro de 2021',
+      identificador: "12345678901234867890",
+      name: "Alexia Mariana",
+      lawsuit: "Lorem ipsum porta commodo",
+      lastupdate: "11 de Janeiro de 2021",
     },
   ];
 

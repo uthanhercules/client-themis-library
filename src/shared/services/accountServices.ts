@@ -1,13 +1,13 @@
-import { ILogin, IChangePassword } from '../types/accountServicesTypes';
+import { ILogin, IChangePassword } from "../types/accountServicesTypes";
 
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = "http://localhost:8000";
 
 async function loginService(data: ILogin) {
   const response = await fetch(`${BASE_URL}/login`, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
-      'Content-type': 'application/json',
+      "Content-type": "application/json",
     },
   });
 
@@ -18,10 +18,10 @@ async function loginService(data: ILogin) {
 
 async function changePasswordService(data: IChangePassword) {
   const response = await fetch(`${BASE_URL}/new-password`, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
-      'Content-type': 'application/json',
+      "Content-type": "application/json",
     },
   });
 
@@ -32,9 +32,9 @@ async function changePasswordService(data: IChangePassword) {
 
 async function verifyLogin(userToken: string) {
   const response = await fetch(`${BASE_URL}/auth-verify`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-type': 'application/json',
+      "Content-type": "application/json",
       userToken,
     },
   });

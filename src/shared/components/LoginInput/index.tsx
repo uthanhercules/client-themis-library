@@ -1,6 +1,6 @@
-import React from 'react';
-import './style.scss';
-import { ILoginInput } from '../../types/componentsTypes';
+import React from "react";
+import "./style.scss";
+import { ILoginInput } from "../../types/componentsTypes";
 
 const index = (props: ILoginInput) => {
   const { type, placeholder, action } = props;

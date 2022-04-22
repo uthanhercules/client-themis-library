@@ -1,14 +1,12 @@
-import React from 'react';
-import {
-  Routes, Outlet, Route, Navigate,
-} from 'react-router-dom';
+import React from "react";
+import { Routes, Outlet, Route, Navigate } from "react-router-dom";
 
-import Login from '../pages/login';
-import PasswordRecovery from '../pages/passwordRecovery';
-import Dashboard from '../pages/dashboard';
+import Login from "../pages/login";
+import PasswordRecovery from "../pages/passwordRecovery";
+import Dashboard from "../pages/dashboard";
 
 function ProtectedRoutes({ redirectTo }: { redirectTo: string }) {
-  const isAuth = localStorage.getItem('userToken');
+  const isAuth = localStorage.getItem("userToken");
   return isAuth ? <Outlet /> : <Navigate to={redirectTo} />;
 }
 

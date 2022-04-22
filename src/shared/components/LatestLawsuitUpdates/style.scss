@@ -1,44 +1,44 @@
 @import "../../scss/variables.scss";
 
 .Lawsuit {
-    height: 40.63px;
+  height: 40.63px;
 
-    display: grid;
-    grid-template-areas: "number client name update";
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    align-items: center;
-    gap: 1rem;
+  display: grid;
+  grid-template-areas: "number client name update";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
 
-    padding: 0px 23px;
-    background: rgba(31, 34, 51, 0.8);
+  padding: 0px 23px;
+  background: rgba(31, 34, 51, 0.8);
 
-    text-align: start;
+  text-align: start;
 
-    span {
-        font-size: 14px;
-    }
+  span {
+    font-size: 14px;
+  }
 
-    .text-blue {
-        color: $secondary-blue;
-    }
+  .text-blue {
+    color: $secondary-blue;
+  }
 
-    .text-white {
-        color: #fff;
-    }
+  .text-white {
+    color: #fff;
+  }
 
-    .Number {
-        grid-area: number;
-    }
+  .Number {
+    grid-area: number;
+  }
 
-    .Client {
-        grid-area: client;
-    }
+  .Client {
+    grid-area: client;
+  }
 
-    .Lawsuit-Name {
-        grid-area: name;
-    }
+  .Lawsuit-Name {
+    grid-area: name;
+  }
 
-    .Last-Update {
-        grid-area: update;
-    }
+  .Last-Update {
+    grid-area: update;
+  }
 }
