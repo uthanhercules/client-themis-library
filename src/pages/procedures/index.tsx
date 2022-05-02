@@ -1,10 +1,34 @@
-import React from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import LoginInput from "../../shared/components/LoginInput";
 import ProcedureListItem from "../../shared/components/ProcedureListItem";
+import getAllProcedures from "../../shared/services/allProceduresService";
 import "./style.scss";
 
 const index = () => {
+  const [proceduresList, setProceduresList] = useState([]);
+
+  useEffect(() => {
+    getProcedureData();
+  }, []);
+
+  async function getProcedureData() {
+    const userToken = localStorage.getItem("userToken");
+
+    if (!userToken) return;
+    const { data, ok } = await getAllProcedures(userToken);
+
+    if (!ok) {
+      toast.error(data);
+      localStorage.removeItem("userToken");
+      return (window.location.href = "/login");
+    }
+
+    return setProceduresList(data);
+  }
+
   return (
     <main className="App-Procedures">
       <Header />
@@ -26,21 +50,21 @@ const index = () => {
           <span className="procedure-edit"></span>
           <span className="procedure-delete"></span>
         </header>
-        <ProcedureListItem
-          procedureNumber="12345678901234567890"
-          name="Processo contra o mundo inteirinhozinho"
-          customer="Uthan Hercules"
-        />
-        <ProcedureListItem
-          procedureNumber="12345678901234567890"
-          name="Processo contra o mundo inteirinhozinho"
-          customer="Uthan Hercules"
-        />
-        <ProcedureListItem
-          procedureNumber="12345678901234567890"
-          name="Processo contra o mundo inteirinhozinho"
-          customer="Uthan Hercules"
-        />
+        {proceduresList.map((proc: any) => {
+          const customerName = proc.customer_name.split(" ");
+          const formatedCustomerName = `${customerName[0]} ${
+            customerName[customerName.length - 1]
+          }`;
+
+          return (
+            <ProcedureListItem
+              key={proc.updated}
+              procedureNumber={proc.procedure_number}
+              name={proc.name}
+              customer={formatedCustomerName}
+            />
+          );
+        })}
       </article>
     </main>
   );
