@@ -16,10 +16,10 @@ const index = ({ procedureNumber, name, customer }: IProcedureListItem) => {
       <span className="p-name">{name}</span>
       <span className="c-name">{customer}</span>
       <button className="p-edit">
-        <img src={editIcon} />
+        <img src={editIcon} alt="Edit Button" />
       </button>
       <button className="p-delete">
-        <img src={deleteIcon} />
+        <img src={deleteIcon} alt="Delete Button" />
       </button>
     </section>
   );
