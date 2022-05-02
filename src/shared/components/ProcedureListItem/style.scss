@@ -1,0 +1,52 @@
+@import "../../scss/variables.scss";
+
+.procedure-item {
+  display: grid;
+  grid-template-areas: "p-number name  customer  edit  delete";
+
+  grid-template-columns: 1.2fr 2fr 1fr 0.2fr 0.2fr;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 16px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.25);
+
+  a {
+    grid-area: p-number;
+    text-decoration: none;
+    color: $secondary-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  span {
+    color: #fff;
+  }
+
+  button {
+    background-color: transparent !important;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .p-name {
+    grid-area: name;
+  }
+
+  .c-name {
+    grid-area: customer;
+  }
+
+  .p-edit {
+    grid-area: edit;
+  }
+
+  .p-delete {
+    grid-area: delete;
+  }
+}
