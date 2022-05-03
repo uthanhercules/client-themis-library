@@ -14,4 +14,6 @@ async function getAllProcedures(userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-export default getAllProcedures;
+const output = { getAllProcedures };
+
+export default output;

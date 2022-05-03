@@ -19,6 +19,6 @@ async function loginService(data: ILogin) {
   return { data: responseData, ok: response.ok };
 }
 
-export default {
-  loginService,
-};
+const output = { loginService };
+
+export default output;

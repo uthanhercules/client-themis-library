@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import LoginInput from "../../shared/components/LoginInput";
 import ProcedureListItem from "../../shared/components/ProcedureListItem";
-import getAllProcedures from "../../shared/services/allProceduresService";
+import apiService from "../../shared/services/allProceduresService";
 import "./style.scss";
 
 const index = () => {
@@ -18,7 +18,8 @@ const index = () => {
     const userToken = localStorage.getItem("userToken");
 
     if (!userToken) return;
-    const { data, ok } = await getAllProcedures(userToken);
+    // TODO - Refactor
+    const { data, ok } = await apiService.getAllProcedures(userToken);
 
     if (!ok) {
       toast.error(data);

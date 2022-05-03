@@ -62,8 +62,10 @@ async function editAdminData(data: IAdminData) {
   return { data: responseData, ok: response.ok };
 }
 
-export default {
+const output = {
   createNewProcedure,
   createNewCustomer,
   editAdminData,
 };
+
+export default output;

@@ -98,7 +98,7 @@ const index = () => {
             <section className="Lawsuit-Data">
               {lawsuitArray.map((eachLawsuit: any) => (
                 <LatestLawsuitUpdates
-                  key={eachLawsuit.id}
+                  key={eachLawsuit.procedure_number}
                   lawsuitNumber={eachLawsuit.procedure_number}
                   customerName={eachLawsuit.customer_name}
                   lawsuitName={eachLawsuit.name}

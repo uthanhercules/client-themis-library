@@ -20,6 +20,6 @@ async function changePasswordService(data: IChangePassword) {
   return { data: responseData, ok: response.ok };
 }
 
-export default {
-  changePasswordService,
-};
+const output = { changePasswordService };
+
+export default output;
