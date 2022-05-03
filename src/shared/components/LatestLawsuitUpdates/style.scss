@@ -18,6 +18,14 @@
     font-size: 14px;
   }
 
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   .text-blue {
     color: $secondary-blue;
   }
