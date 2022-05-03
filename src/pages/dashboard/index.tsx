@@ -1,4 +1,6 @@
-import React from "react";
+/* eslint-disable react-hooks/rules-of-hooks */
+import React, { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import "./style.scss";
 
 import Header from "../../shared/components/Header";
@@ -9,8 +11,12 @@ import NewLawsuitIconControlBoard from "../../shared/assets/newlawsuit.svg";
 import NewNlientIconControlBoard from "../../shared/assets/newclient.svg";
 import EditMyDataIconControlBoard from "../../shared/assets/editmydata.svg";
 
+import ApiService from "../../shared/services/latestLawsuitUpdatesService";
+
 const index = () => {
-  const board = [
+  const [lawsuitArray, setLawsuitArray] = useState([]);
+
+  const controlBoard = [
     {
       id: 1,
       src: NewLawsuitIconControlBoard,
@@ -34,38 +40,33 @@ const index = () => {
     },
   ];
 
-  const database = [
-    {
-      identificador: "12325678901234567890",
-      name: "Malu Costa",
-      lawsuit: "Lorem ipsum porta commodo",
-      lastupdate: "02 de Janeiro de 2022",
-    },
-    {
-      identificador: "12345673901234567890",
-      name: "Aurora Carvalho",
-      lawsuit: "Lorem ipsum porta commodo",
-      lastupdate: "12 de Dezembro de 2021",
-    },
-    {
-      identificador: "12345678961234567890",
-      name: "Caroline Dias",
-      lawsuit: "Lorem ipsum porta commodo",
-      lastupdate: "07 de Setembro de 2021",
-    },
-    {
-      identificador: "12345678901235567890",
-      name: "Cauê Aragão",
-      lawsuit: "Lorem ipsum porta commodo",
-      lastupdate: "26 de Abril de 2021",
-    },
-    {
-      identificador: "12345678901234867890",
-      name: "Alexia Mariana",
-      lawsuit: "Lorem ipsum porta commodo",
-      lastupdate: "11 de Janeiro de 2021",
-    },
-  ];
+  const loadLawsuits = async () => {
+    try {
+      const userToken = localStorage.getItem("userToken");
+
+      if (!userToken) {
+        toast.error("Você precisa estar logado para fazer isso!");
+        return (window.location.href = "/login");
+      }
+
+      const { data: lawsuitData, ok } = await ApiService.getFiveLastProcedures(
+        userToken
+      );
+
+      if (!ok) {
+        toast.error(lawsuitData);
+        return (window.location.href = "/login");
+      }
+
+      return setLawsuitArray(lawsuitData);
+    } catch (error) {
+      return error;
+    }
+  };
+
+  useEffect(() => {
+    loadLawsuits();
+  }, []);
 
   return (
     <main className="App-Dashboard">
@@ -74,7 +75,7 @@ const index = () => {
         <section className="Controlboard">
           <h1>Painel de Controle</h1>
           <nav className="Each-Controlboard">
-            {board.map((eachController) => (
+            {controlBoard.map((eachController) => (
               <ControlBoard
                 key={eachController.id}
                 src={eachController.src}
@@ -85,7 +86,6 @@ const index = () => {
             ))}
           </nav>
         </section>
-        {/* */}
         <section className="Latest-Lawsuit-Updates">
           <h2>Últimos processos atualizados</h2>
           <article>
@@ -96,13 +96,13 @@ const index = () => {
               <span className="Last-Update">última alteração</span>
             </section>
             <section className="Lawsuit-Data">
-              {database.map((eachData) => (
+              {lawsuitArray.map((eachLawsuit: any) => (
                 <LatestLawsuitUpdates
-                  key={eachData.identificador}
-                  identificador={eachData.identificador}
-                  name={eachData.name}
-                  lawsuit={eachData.lawsuit}
-                  lastupdate={eachData.lastupdate}
+                  key={eachLawsuit.id}
+                  lawsuitNumber={eachLawsuit.procedure_number}
+                  customerName={eachLawsuit.customer_name}
+                  lawsuitName={eachLawsuit.name}
+                  dateUpdated={eachLawsuit.updated}
                 />
               ))}
             </section>

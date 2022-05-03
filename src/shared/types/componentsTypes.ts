@@ -6,10 +6,10 @@ interface IControlBoard {
 }
 
 interface IFiveProcedures {
-  identificador: string;
-  name: string;
-  lawsuit: string;
-  lastupdate: string;
+  lawsuitName: string;
+  customerName: string;
+  lawsuitNumber: string;
+  dateUpdated: string;
 }
 
 interface ILoginInput {

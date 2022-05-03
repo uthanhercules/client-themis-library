@@ -1,8 +1,12 @@
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = "http://localhost:8000";
 
-async function getFiveLastProcedures(point: string) {
-  const response = await fetch(BASE_URL + point, {
-    method: 'GET',
+async function getFiveLastProcedures(userToken: string) {
+  const response = await fetch(BASE_URL + "/procedure/list-recent", {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
   });
 
   const responseData = await response.json();

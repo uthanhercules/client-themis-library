@@ -3,13 +3,13 @@ import "./style.scss";
 import { IFiveProcedures } from "../../types/componentsTypes";
 
 const index = (props: IFiveProcedures) => {
-  const { identificador, name, lawsuit, lastupdate } = props;
+  const { lawsuitNumber, customerName, lawsuitName, dateUpdated } = props;
   return (
     <section className="Lawsuit">
-      <span className="text-blue Number">{identificador}</span>
-      <span className="text-white Client">{name}</span>
-      <span className="text-white Lawsuit-Name">{lawsuit}</span>
-      <span className="text-white Last-Update">{lastupdate}</span>
+      <span className="text-blue Number">{lawsuitNumber}</span>
+      <span className="text-white Client">{customerName}</span>
+      <span className="text-white Lawsuit-Name">{lawsuitName}</span>
+      <span className="text-white Last-Update">{dateUpdated}</span>
     </section>
   );
 };

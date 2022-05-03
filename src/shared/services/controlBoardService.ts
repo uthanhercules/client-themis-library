@@ -1,31 +1,31 @@
-const BASE_URL = 'http://localhost:8000/';
+const BASE_URL = "http://localhost:8000/";
 
 interface INewProcedure {
-  customer_id: string,
-  customer_name: string,
-  procedure_number: string,
-  name: string,
-  description: string,
-  files: string,
+  customer_id: string;
+  customer_name: string;
+  procedure_number: string;
+  name: string;
+  description: string;
+  files: string;
 }
 
 interface INewCustomer {
-  full_name: string,
-  email: string,
+  full_name: string;
+  email: string;
 }
 
 interface IAdminData {
-  login: string,
-  password: string,
-  email: string,
+  login: string;
+  password: string;
+  email: string;
 }
 
 async function createNewProcedure(point: string, data: INewProcedure) {
   const response = await fetch(BASE_URL + point, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
-      'Content-type': 'application/json',
+      "Content-type": "application/json",
     },
   });
 
@@ -36,10 +36,10 @@ async function createNewProcedure(point: string, data: INewProcedure) {
 
 async function createNewCustomer(point: string, data: INewCustomer) {
   const response = await fetch(BASE_URL + point, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify(data),
     headers: {
-      'Content-type': 'application/json',
+      "Content-type": "application/json",
     },
   });
 
@@ -50,10 +50,10 @@ async function createNewCustomer(point: string, data: INewCustomer) {
 
 async function editAdminData(point: string, data: IAdminData) {
   const response = await fetch(BASE_URL + point, {
-    method: 'PUT',
+    method: "PUT",
     body: JSON.stringify(data),
     headers: {
-      'Content-type': 'application/json',
+      "Content-type": "application/json",
     },
   });
 
