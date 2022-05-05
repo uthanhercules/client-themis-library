@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import { Navigate } from 'react-router-dom';
 import Header from "../../shared/components/Header";
 import LoginInput from "../../shared/components/LoginInput";
 import ProcedureListItem from "../../shared/components/ProcedureListItem";
@@ -9,6 +10,7 @@ import "./style.scss";
 
 const index = () => {
   const [proceduresList, setProceduresList] = useState([]);
+  const [createNew, setCreateNew] = useState(false);
 
   useEffect(() => {
     getProcedureData();
@@ -30,6 +32,10 @@ const index = () => {
     return setProceduresList(data);
   }
 
+  if (createNew) {
+    return <Navigate to="/processos/novo" />
+  }
+
   return (
     <main className="App-Procedures">
       <Header />
@@ -41,7 +47,7 @@ const index = () => {
           placeholder="Buscar Processo"
           action={() => console.log("Pesquisei")}
         />
-        <button type="button">+ Novo Processo</button>
+          <button type="button" onClick={() => setCreateNew(true)}>+ Novo Processo</button>
       </article>
       <article className="procedure-list">
         <header>

@@ -5,6 +5,7 @@ import Login from "../pages/login";
 import PasswordRecovery from "../pages/passwordRecovery";
 import Dashboard from "../pages/dashboard";
 import Procedures from "../pages/procedures";
+import NewProcedure from '../pages/newProcedure';
 
 function ProtectedRoutes({ redirectTo }: { redirectTo: string }) {
   const isAuth = localStorage.getItem("userToken");
@@ -22,6 +23,7 @@ const outlet = () => (
 
     <Route element={<ProtectedRoutes redirectTo="/login" />}>
       <Route path="/painel" element={<Dashboard />} />
+      <Route path="/processos/novo" element={<NewProcedure />} />
       <Route path="/processos" element={<Procedures />} />
     </Route>
   </Routes>
