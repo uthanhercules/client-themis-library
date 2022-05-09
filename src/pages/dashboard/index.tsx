@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
+import { NavLink } from "react-router-dom";
 import "./style.scss";
 
 import Header from "../../shared/components/Header";
@@ -23,6 +24,7 @@ const index = () => {
       alt: "Icon para novo processo",
       span: "Novo Processo",
       color: "#2C99FF",
+      navLink: "/processos/novo",
     },
     {
       id: 2,
@@ -30,6 +32,7 @@ const index = () => {
       alt: "Icon de novo cliente",
       span: "Novo Cliente",
       color: "#20C997",
+      navLink: "/processos/novo",
     },
     {
       id: 3,
@@ -37,6 +40,7 @@ const index = () => {
       alt: "Icon para edição de dados",
       span: "Editar meus Dados",
       color: "#FA8B0C",
+      navLink: "/processos/novo",
     },
   ];
 
@@ -55,6 +59,7 @@ const index = () => {
 
       if (!ok) {
         toast.error(lawsuitData);
+        localStorage.removeItem("userToken");
         return (window.location.href = "/login");
       }
 
@@ -76,13 +81,15 @@ const index = () => {
           <h1>Painel de Controle</h1>
           <nav className="Each-Controlboard">
             {controlBoard.map((eachController) => (
-              <ControlBoard
-                key={eachController.id}
-                src={eachController.src}
-                alt={eachController.alt}
-                span={eachController.span}
-                color={eachController.color}
-              />
+              <NavLink to={eachController.navLink}>
+                <ControlBoard
+                  key={eachController.id}
+                  src={eachController.src}
+                  alt={eachController.alt}
+                  span={eachController.span}
+                  color={eachController.color}
+                />
+              </NavLink>
             ))}
           </nav>
         </section>

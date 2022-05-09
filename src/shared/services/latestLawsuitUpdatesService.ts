@@ -14,6 +14,6 @@ async function getFiveLastProcedures(userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-const output =  {getFiveLastProcedures};
+const output = { getFiveLastProcedures };
 
 export default output;
