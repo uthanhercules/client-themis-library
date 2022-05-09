@@ -5,7 +5,7 @@ import Login from "../pages/login";
 import PasswordRecovery from "../pages/passwordRecovery";
 import Dashboard from "../pages/dashboard";
 import Procedures from "../pages/procedures";
-import NewProcedure from '../pages/newProcedure';
+import NewProcedure from "../pages/newProcedure";
 
 function ProtectedRoutes({ redirectTo }: { redirectTo: string }) {
   const isAuth = localStorage.getItem("userToken");
