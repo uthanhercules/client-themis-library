@@ -32,7 +32,7 @@ const index = () => {
       alt: "Icon de novo cliente",
       span: "Novo Cliente",
       color: "#20C997",
-      navLink: "/processos/novo",
+      navLink: "/clientes/novo",
     },
     {
       id: 3,
