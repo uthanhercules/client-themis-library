@@ -1,18 +1,30 @@
-import React from 'react';
-import './App.scss';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
 
-import Home from './pages/App-Home';
+import "./shared/scss/global.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+import Outlet from "./routes/outlet";
+import MainAsideMenu from "./shared/components/MainAsideMenu";
 
 function App() {
+  const [auth, setAuth] = useState(false);
+
+  useEffect(() => {
+    const isAuth = localStorage.getItem("userToken");
+    if (isAuth) {
+      setAuth(true);
+    }
+  }, []);
+
   return (
-    <Router>
+    <>
+      <ToastContainer theme="dark" />
       <main className="App">
-        <Switch>
-          <Route path={['/', '/login']} exact component={Home} />
-        </Switch>
+        {auth ? <MainAsideMenu /> : null}
+        <Outlet />
       </main>
-    </Router>
+    </>
   );
 }
 

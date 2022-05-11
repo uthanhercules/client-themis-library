@@ -1,0 +1,25 @@
+@import "../../scss/variables.scss";
+
+.Controller {
+  all: unset;
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 181px;
+  height: 168px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+
+  color: $ice-background;
+
+  span {
+    font-weight: 600;
+  }
+
+  .Icon-ControlBoard {
+    margin: 54px 65px 31px;
+  }
+}

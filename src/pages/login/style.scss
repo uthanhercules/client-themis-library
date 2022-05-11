@@ -1,0 +1,58 @@
+@import "../../shared/scss/variables.scss";
+
+.App-Login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $primary-blue;
+
+  h1 {
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 700;
+    color: $success;
+  }
+
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    width: 281px;
+
+    .login-inputs {
+      display: flex;
+      flex-direction: column;
+      gap: 36px;
+    }
+
+    .forgot-password {
+      margin: 24px 0;
+      font-size: 12px;
+      color: $success;
+      text-decoration: none;
+
+      &:hover {
+        color: $attention;
+      }
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      height: 43px;
+      background-color: $success;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #fff;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}

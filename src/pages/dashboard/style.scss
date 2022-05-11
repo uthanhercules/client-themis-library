@@ -1,0 +1,87 @@
+@import "../../shared/scss/variables.scss";
+
+.Container-Content {
+  padding: 19px 41px 31px 310px;
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+    color: $success;
+
+    margin-bottom: 32px;
+  }
+
+  .Controlboard {
+    margin-bottom: 32px;
+
+    .Each-Controlboard {
+      display: flex;
+      align-items: center;
+      gap: 34px;
+    }
+  }
+
+  .Latest-Lawsuit-Updates {
+    h2 {
+      font-family: Inter;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 29px;
+      color: $success;
+
+      margin-bottom: 9px;
+    }
+
+    .Menu-Lawsuit {
+      display: grid;
+      grid-template-areas: "number client name update";
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 1rem;
+
+      padding: 7px 23px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 4px 4px 0px 0px;
+
+      font-family: Inter;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 15px;
+      letter-spacing: 0.295em;
+      text-transform: uppercase;
+      color: $attention;
+
+      margin-bottom: 7px;
+
+      .Number {
+        grid-area: number;
+      }
+
+      .Client {
+        grid-area: client;
+      }
+
+      .Lawsuit-Name {
+        grid-area: name;
+      }
+
+      .Last-Update {
+        grid-area: update;
+      }
+    }
+
+    .Lawsuit-Data {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+}
