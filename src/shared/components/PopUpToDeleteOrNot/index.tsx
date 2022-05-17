@@ -1,30 +1,27 @@
-import './styles.css';
+import "./style.scss";
 
 interface IDeleteCustomer {
-    setPopUp: boolean;
-    handleDeleteCustomer: function;
+  setPopUp: any;
+  handleDeleteCustomer: any;
 }
 
-function PopUpToDeleteCustomer({ setPopUp, handleDeleteCustomer }) {
+function PopUpToDeleteCustomer({
+  setPopUp,
+  handleDeleteCustomer,
+}: IDeleteCustomer) {
   return (
-    <section className='PopUp'>
+    <section className="PopUp">
       <span>Tem certeza que quer apagar esse cliente?</span>
-      <section className='Buttons-PopUp'>
-      <button 
-      className='Left-PopUp'
-      onClick={() => handleDeleteCustomer()}
-      >
-        Sim
-      </button>
-      <button 
-      className='Right-PopUp'
-      onClick={() => setPopUp(false)}
-      >
-        Não
-      </button>
+      <section className="Buttons-PopUp">
+        <button className="Left-PopUp" onClick={() => handleDeleteCustomer()}>
+          Sim
+        </button>
+        <button className="Right-PopUp" onClick={() => setPopUp(false)}>
+          Não
+        </button>
       </section>
-   </section>
-  )
+    </section>
+  );
 }
 
 export default PopUpToDeleteCustomer;

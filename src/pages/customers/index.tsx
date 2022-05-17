@@ -51,12 +51,12 @@ const Customer = () => {
         </header>
         {customerList.map((cust: any) => (
           <CustumerListItem
-              key={cust.id}
-              fullName={cust.full_name}
-              email={cust.email}
-              customerList={customerList}
-              setCustomerList={setCustomerList}
-            />
+            key={cust.id}
+            fullName={cust.full_name}
+            email={cust.email}
+            customerList={customerList}
+            setCustomerList={setCustomerList}
+          />
         ))}
       </article>
     </main>
