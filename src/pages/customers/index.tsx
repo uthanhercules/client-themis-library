@@ -45,7 +45,7 @@ const Customer = () => {
       <article className="customers-list">
         <header>
           <span className="customer-fullName">Nome Completo</span>
-          <span className="customer-email">email</span>
+          <span className="customer-email">Email</span>
           <span className="customer-edit"></span>
           <span className="customer-delete"></span>
         </header>
@@ -54,6 +54,8 @@ const Customer = () => {
               key={cust.id}
               fullName={cust.full_name}
               email={cust.email}
+              customerList={customerList}
+              setCustomerList={setCustomerList}
             />
         ))}
       </article>
