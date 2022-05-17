@@ -17,7 +17,6 @@ const Customer = () => {
     const userToken = localStorage.getItem("userToken");
 
     if (!userToken) return;
-    // TODO - Refactor
     const { data, ok } = await apiService.getAllCustomers(userToken);
 
     if (!ok) {
@@ -51,7 +50,8 @@ const Customer = () => {
         </header>
         {customerList.map((cust: any) => (
           <CustumerListItem
-            key={cust.id}
+            key={cust.id + cust.full_name}
+            itemId={cust.id}
             fullName={cust.full_name}
             email={cust.email}
             customerList={customerList}

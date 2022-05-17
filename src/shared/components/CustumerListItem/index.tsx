@@ -1,4 +1,4 @@
-//* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -9,7 +9,7 @@ import editIcon from "../../assets/edit-icon.svg";
 import "./style.scss";
 
 interface ICustomerListItem {
-  key: string;
+  itemId: string;
   fullName: string;
   email: string;
   customerList: any;
@@ -17,7 +17,7 @@ interface ICustomerListItem {
 }
 
 const index = ({
-  key,
+  itemId,
   fullName,
   email,
   customerList,
@@ -43,7 +43,7 @@ const index = ({
 
       const localCustomers = [...customerList];
       const customerDelete = localCustomers.findIndex(
-        (customer) => customer.id === key
+        (customer) => customer.id === itemId
       );
       localCustomers.splice(customerDelete, 1);
 
@@ -54,8 +54,8 @@ const index = ({
   }
 
   return (
-    <section className="customers-item">
-      <NavLink to={`/customers/${fullName}`}>{fullName}</NavLink>
+    <section className="customer-item">
+      <NavLink to={`/customers/${itemId}`}>{fullName}</NavLink>
       <span className="c-email">{email}</span>
       <button className="c-edit">
         <img src={editIcon} alt="Edit Button" />
