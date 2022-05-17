@@ -1,0 +1,44 @@
+@import "../../scss/variables.scss";
+
+.PopUp {
+  width: 100px;
+  height: 46px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  position: absolute;
+  top: 45px;
+  right: 10px;
+  z-index: 2;
+
+  background: $ice-background;
+  border-radius: 4px;
+}
+
+.Buttons-PopUp {
+  display: flex;
+}
+  
+.Left-PopUp, .Right-PopUp {
+  width: 40px;
+  height: 16px;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  border-radius: 4px;
+}
+
+.Left-PopUp {
+  background-color: $secondary-blue;
+}
+  
+.Right-PopUp {
+  background-color: $attention;
+}
