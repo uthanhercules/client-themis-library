@@ -21,9 +21,11 @@ const index = () => {
     const procedures = document.querySelectorAll(".procedure-item");
 
     procedures.forEach((procedure: any) => {
-      const includesSearchedWord = procedure.innerText.includes(searched);
-      procedure.style.display = "flex";
+      const includesSearchedWord = procedure.innerText
+        .toLowerCase()
+        .includes(searched.toLowerCase());
 
+      procedure.style.display = "flex";
       if (includesSearchedWord) return (procedure.style.display = "flex");
 
       return (procedure.style.display = "none");
