@@ -1,0 +1,48 @@
+@import "../../scss/variables.scss";
+
+.customer-item {
+  display: grid;
+  grid-template-areas: "c-fullName email edit delete";
+
+  grid-template-columns: 2fr 2fr 0.2fr 0.2fr;
+  align-items: center;
+  margin: 10px 0;
+  padding: 0 16px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.25);
+
+  a {
+    grid-area: c-fullName;
+    text-decoration: none;
+    color: $secondary-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  span {
+    color: #fff;
+  }
+
+  button {
+    background-color: transparent !important;
+
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  .c-email {
+    grid-area: email;
+  }
+
+  .c-edit {
+    grid-area: edit;
+  }
+
+  .c-delete {
+    grid-area: delete;
+  }
+}

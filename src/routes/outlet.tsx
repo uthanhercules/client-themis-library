@@ -6,6 +6,7 @@ import PasswordRecovery from "../pages/passwordRecovery";
 import Dashboard from "../pages/dashboard";
 import Procedures from "../pages/procedures";
 import NewProcedure from "../pages/newProcedure";
+import Customers from "../pages/customers";
 import NewCustomer from "../pages/newCustomer";
 
 function ProtectedRoutes({ redirectTo }: { redirectTo: string }) {
@@ -27,6 +28,7 @@ const outlet = () => (
       <Route path="/processos/novo" element={<NewProcedure />} />
       <Route path="/processos" element={<Procedures />} />
       <Route path="/clientes/novo" element={<NewCustomer />} />
+      <Route path="/clientes" element={<Customers />} />
     </Route>
   </Routes>
 );
