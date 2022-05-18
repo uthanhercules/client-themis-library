@@ -24,8 +24,8 @@ const Customer = () => {
         .toLowerCase()
         .includes(searchCustomer.toLowerCase());
 
-      customer.style.display = "flex";
-      if (includesSearchedWord) return (customer.style.display = "flex");
+      customer.style.display = "grid";
+      if (includesSearchedWord) return (customer.style.display = "grid");
 
       return (customer.style.display = "none");
     });

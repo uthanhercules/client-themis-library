@@ -25,8 +25,8 @@ const index = () => {
         .toLowerCase()
         .includes(searchProcedure.toLowerCase());
 
-      procedure.style.display = "flex";
-      if (includesSearchedWord) return (procedure.style.display = "flex");
+      procedure.style.display = "grid";
+      if (includesSearchedWord) return (procedure.style.display = "grid");
 
       return (procedure.style.display = "none");
     });
