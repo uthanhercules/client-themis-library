@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import apiService from "../../services/allCustomerService";
 import deleteIcon from "../../assets/delete-icon.svg";
@@ -23,6 +23,7 @@ const index = ({
   email,
 }: ICustomerListItem) => {
   const [currentId, setCurrentId] = useState("");
+  const [editCustomer, setEditCustomer] = useState(false);
 
   async function handleDeleteButton(id: string) {
     if (id !== currentId) {
@@ -52,11 +53,13 @@ const index = ({
     return toast.success('Cliente apagado com sucesso!');
   }
 
+  if (editCustomer) return <Navigate to={`/clientes/editar/${itemId}`} />
+
   return (
     <section className="customer-item">
       <NavLink to={`/clientes/${itemId}`}>{fullName}</NavLink>
       <span className="c-email">{email}</span>
-      <button className="c-edit">
+      <button className="c-edit" onClick={() => setEditCustomer(true)}>
         <img src={editIcon} alt="Edit Button" />
       </button>
       <button className="c-delete" onClick={() => handleDeleteButton(itemId)}>

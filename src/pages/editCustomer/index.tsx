@@ -41,7 +41,7 @@ const index = () => {
   return (
     <article className="new-procedure-page">
       <Header />
-      <h1>Edit Cliente</h1>
+      <h1>Editar Cliente</h1>
       <form className="new-procedure-data">
         <Input
           className="g-input"
