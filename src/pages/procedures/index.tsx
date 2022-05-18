@@ -11,24 +11,25 @@ import "./style.scss";
 const index = () => {
   const [proceduresList, setProceduresList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
-  const [searched, setSearched] = useState('');
+  const [searched, setSearched] = useState("");
 
   useEffect(() => {
     getProcedureData();
   }, []);
-  
+
   useEffect(() => {
-    const procedures = document.querySelectorAll('.procedure-item');
-  
+    const procedures = document.querySelectorAll(".procedure-item");
+
     procedures.forEach((procedure: any) => {
-      procedure.style.display = 'flex';
+      const includesSearchedWord = procedure.innerText.includes(searched);
+      procedure.style.display = "flex";
 
-      if (procedure.innerText.includes(searched)) return procedure.style.display = 'flex';
+      if (includesSearchedWord) return (procedure.style.display = "flex");
 
-      return procedure.style.display = 'none';
+      return (procedure.style.display = "none");
     });
 
-    console.log(procedures)
+    console.log(procedures);
   }, [searched]);
 
   async function getProcedureData() {
