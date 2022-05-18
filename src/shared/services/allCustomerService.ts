@@ -14,13 +14,16 @@ async function getAllCustomers(userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-async function deleteCustomer(userToken: string) {
+async function deleteCustomer(id: string, userToken: string) {
   const response = await fetch(`${BASE_URL}/customer/delete`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
       userToken,
     },
+    body: JSON.stringify({
+      id,
+    }),
   });
 
   const responseData = await response.json();
