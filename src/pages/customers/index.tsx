@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Navigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import LoginInput from "../../shared/components/LoginInput";
@@ -8,6 +9,7 @@ import "./style.scss";
 
 const Customer = () => {
   const [customerList, setCustomerList] = useState([]);
+  const [createNew, setCreateNew] = useState(false);
 
   useEffect(() => {
     getCustomerData();
@@ -28,6 +30,10 @@ const Customer = () => {
     return setCustomerList(data);
   }
 
+  if (createNew) {
+    return <Navigate to="/clientes/novo" />;
+  }
+
   return (
     <main className="App-Customers">
       <Header />
@@ -39,7 +45,7 @@ const Customer = () => {
           placeholder="Buscar Cliente"
           action={() => console.log("Pesquisei")}
         />
-        <button type="button">+ Novo Cliente</button>
+        <button type="button" onClick={() => setCreateNew(true)}>+ Novo Cliente</button>
       </article>
       <article className="customers-list">
         <header>

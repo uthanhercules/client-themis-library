@@ -23,7 +23,7 @@ const index = () => {
             action={setProcedureNumber}
           />
           <Input
-            className="g-input"
+            className="g-input name"
             type="text"
             placeholder="Nome do Processo"
             action={setProcedureName}
