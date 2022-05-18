@@ -3,7 +3,6 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { toast } from "react-toastify";
 import apiService from "../../services/allCustomerService";
-import PopUpToDeleteCustomer from "../PopUpToDeleteOrNot";
 import deleteIcon from "../../assets/delete-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import "./style.scss";
@@ -23,7 +22,8 @@ const index = ({
   customerList,
   setCustomerList,
 }: ICustomerListItem) => {
-  const [popUp, setPopUp] = useState(false);
+
+  const [currentId, setCurrentId] = useState('');
 
   async function handleDeleteCustomer() {
     const userToken = localStorage.getItem("userToken");
@@ -41,6 +41,12 @@ const index = ({
         return (window.location.href = "/login");
       }
 
+      if (currentId !== itemId) {
+        setCurrentId(itemId);
+        toast.warning("Clique mais uma vez para deletar");
+        return;
+      }
+
       const localCustomers = [...customerList];
       const customerDelete = localCustomers.findIndex(
         (customer) => customer.id === itemId
@@ -48,6 +54,8 @@ const index = ({
       localCustomers.splice(customerDelete, 1);
 
       setCustomerList(localCustomers);
+
+      toast.success("Cliente deletado com sucesso");
     } catch (error: any) {
       return toast.error(error);
     }
@@ -62,16 +70,10 @@ const index = ({
       </button>
       <button
         className="c-delete"
-        onClick={() => (popUp ? setPopUp(false) : setPopUp(true))}
+        onClick={() => handleDeleteCustomer()}
       >
         <img src={deleteIcon} alt="Delete Button" />
       </button>
-      {popUp && (
-        <PopUpToDeleteCustomer
-          setPopUp={setPopUp}
-          handleDeleteCustomer={handleDeleteCustomer}
-        />
-      )}
     </section>
   );
 };
