@@ -22,8 +22,7 @@ const index = ({
   customerList,
   setCustomerList,
 }: ICustomerListItem) => {
-
-  const [currentId, setCurrentId] = useState('');
+  const [currentId, setCurrentId] = useState("");
 
   async function handleDeleteCustomer() {
     const userToken = localStorage.getItem("userToken");
@@ -68,10 +67,7 @@ const index = ({
       <button className="c-edit">
         <img src={editIcon} alt="Edit Button" />
       </button>
-      <button
-        className="c-delete"
-        onClick={() => handleDeleteCustomer()}
-      >
+      <button className="c-delete" onClick={() => handleDeleteCustomer()}>
         <img src={deleteIcon} alt="Delete Button" />
       </button>
     </section>
