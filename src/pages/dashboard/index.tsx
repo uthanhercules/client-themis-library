@@ -81,9 +81,8 @@ const index = () => {
           <h1>Painel de Controle</h1>
           <nav className="Each-Controlboard">
             {controlBoard.map((eachController) => (
-              <NavLink to={eachController.navLink}>
+              <NavLink to={eachController.navLink} key={eachController.id} >
                 <ControlBoard
-                  key={eachController.id}
                   src={eachController.src}
                   alt={eachController.alt}
                   span={eachController.span}

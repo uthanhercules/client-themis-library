@@ -11,16 +11,30 @@ import "./style.scss";
 const index = () => {
   const [proceduresList, setProceduresList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
+  const [searched, setSearched] = useState('');
 
   useEffect(() => {
     getProcedureData();
   }, []);
+  
+  useEffect(() => {
+    const procedures = document.querySelectorAll('.procedure-item');
+  
+    procedures.forEach((procedure: any) => {
+      procedure.style.display = 'flex';
+
+      if (procedure.innerText.includes(searched)) return procedure.style.display = 'flex';
+
+      return procedure.style.display = 'none';
+    });
+
+    console.log(procedures)
+  }, [searched]);
 
   async function getProcedureData() {
     const userToken = localStorage.getItem("userToken");
 
     if (!userToken) return;
-    // TODO - Refactor
     const { data, ok } = await apiService.getAllProcedures(userToken);
 
     if (!ok) {
@@ -45,7 +59,7 @@ const index = () => {
           className="login-input"
           type="text"
           placeholder="Buscar Processo"
-          action={() => console.log("Pesquisei")}
+          action={setSearched}
         />
         <button type="button" onClick={() => setCreateNew(true)}>
           + Novo Processo
