@@ -62,7 +62,7 @@ const index = ({
 
   return (
     <section className="customer-item">
-      <NavLink to={`/customers/${itemId}`}>{fullName}</NavLink>
+      <NavLink to={`/clientes/${itemId}`}>{fullName}</NavLink>
       <span className="c-email">{email}</span>
       <button className="c-edit">
         <img src={editIcon} alt="Edit Button" />
