@@ -28,7 +28,7 @@ const outlet = () => (
       <Route path="/painel" element={<Dashboard />} />
       <Route path="/processos/novo" element={<NewProcedure />} />
       <Route path="/processos" element={<Procedures />} />
-      <Route path="/clientes/editar" element={<EditCustomer />} />
+      <Route path="/clientes/editar/:id" element={<EditCustomer />} />
       <Route path="/clientes/novo" element={<NewCustomer />} />
       <Route path="/clientes" element={<Customers />} />
     </Route>
