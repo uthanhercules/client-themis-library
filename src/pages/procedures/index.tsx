@@ -11,7 +11,7 @@ import "./style.scss";
 const index = () => {
   const [proceduresList, setProceduresList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
-  const [searched, setSearched] = useState("");
+  const [searchProcedure, setSearchProcedure] = useState("");
 
   useEffect(() => {
     getProcedureData();
@@ -23,16 +23,14 @@ const index = () => {
     procedures.forEach((procedure: any) => {
       const includesSearchedWord = procedure.innerText
         .toLowerCase()
-        .includes(searched.toLowerCase());
+        .includes(searchProcedure.toLowerCase());
 
-      procedure.style.display = "flex";
-      if (includesSearchedWord) return (procedure.style.display = "flex");
+      procedure.style.display = "grid";
+      if (includesSearchedWord) return (procedure.style.display = "grid");
 
       return (procedure.style.display = "none");
     });
-
-    console.log(procedures);
-  }, [searched]);
+  }, [searchProcedure]);
 
   async function getProcedureData() {
     const userToken = localStorage.getItem("userToken");
@@ -62,7 +60,7 @@ const index = () => {
           className="login-input"
           type="text"
           placeholder="Buscar Processo"
-          action={setSearched}
+          action={setSearchProcedure}
         />
         <button type="button" onClick={() => setCreateNew(true)}>
           + Novo Processo

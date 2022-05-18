@@ -10,10 +10,26 @@ import "./style.scss";
 const Customer = () => {
   const [customerList, setCustomerList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
+  const [searchCustomer, setSearchCustomer] = useState("");
 
   useEffect(() => {
     getCustomerData();
   }, []);
+
+  useEffect(() => {
+    const customers = document.querySelectorAll(".customer-item");
+
+    customers.forEach((customer: any) => {
+      const includesSearchedWord = customer.innerText
+        .toLowerCase()
+        .includes(searchCustomer.toLowerCase());
+
+      customer.style.display = "grid";
+      if (includesSearchedWord) return (customer.style.display = "grid");
+
+      return (customer.style.display = "none");
+    });
+  }, [searchCustomer]);
 
   async function getCustomerData() {
     const userToken = localStorage.getItem("userToken");
@@ -43,7 +59,7 @@ const Customer = () => {
           className="login-input"
           type="text"
           placeholder="Buscar Cliente"
-          action={() => console.log("Pesquisei")}
+          action={setSearchCustomer}
         />
         <button type="button" onClick={() => setCreateNew(true)}>
           + Novo Cliente
