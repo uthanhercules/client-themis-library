@@ -7,6 +7,7 @@ import Input from "../../shared/components/LoginInput";
 import "./style.scss";
 
 import userService from "../../shared/services/customerServices";
+import customerUpdate from "../../shared/services/allCustomerService";
 
 const index = () => {
   const [user, setUser] = useState<any>();
@@ -34,6 +35,27 @@ const index = () => {
     setLoaded(true);
   }
 
+  async function editCustomer(e: any) {
+    e.preventDefault();
+    const userToken = localStorage.getItem("userToken");
+    if (!userToken) return;
+
+    const userData = {
+      customer_id: user.id,
+      full_name: fullName,
+      email,
+    };
+
+    const { data, ok } = await customerUpdate.updateCustomer(
+      userData,
+      userToken
+    );
+    if (!ok) return;
+
+    toast.success("Editado!");
+    return;
+  }
+
   return (
     <article className="new-procedure-page">
       <Header />
@@ -53,10 +75,9 @@ const index = () => {
           placeholder="E-mail"
           action={setEmail}
         />
-        <button>Criar Novo Cliente</button>
+        <button onClick={(e) => editCustomer(e)}>Criar Novo Cliente</button>
       </form>
     </article>
   );
 };
-
 export default index;

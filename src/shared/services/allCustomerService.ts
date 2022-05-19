@@ -31,13 +31,14 @@ async function deleteCustomer(id: string, userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-async function updateCustomer(userToken: string) {
+async function updateCustomer(data: any, userToken: string) {
   const response = await fetch(`${BASE_URL}/customer/update`, {
     method: "PATCH",
     headers: {
       "Content-type": "application/json",
       userToken,
     },
+    body: JSON.stringify(data),
   });
 
   const responseData = await response.json();
