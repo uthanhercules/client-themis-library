@@ -20,6 +20,20 @@ async function createNewCustomer(data: ICreateNewCustomer, userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-const output = { createNewCustomer };
+async function getUserById(id: string, userToken: string) {
+  const response = await fetch(BASE_URL + "/customer/" + id, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
+const output = { createNewCustomer, getUserById };
 
 export default output;

@@ -28,7 +28,7 @@ const index = ({
   async function handleDeleteButton(id: string) {
     if (id !== currentId) {
       setCurrentId(id);
-      return toast.warning('Clique mais uma vez para deletar permanentemente.');
+      return toast.warning("Clique mais uma vez para deletar permanentemente.");
     }
 
     try {
@@ -38,22 +38,23 @@ const index = ({
         return (window.location.href = "/login");
       }
 
-      const { data, ok } = await apiService.deleteCustomer(currentId, userToken);
+      const { data, ok } = await apiService.deleteCustomer(
+        currentId,
+        userToken
+      );
       if (!ok) {
         toast.error(data);
         return (window.location.href = "/login");
       }
-
-    }
-    catch (err: any) {
+    } catch (err: any) {
       return toast.error(err);
     }
 
     reloadCustomerList(!updated);
-    return toast.success('Cliente apagado com sucesso!');
+    return toast.success("Cliente apagado com sucesso!");
   }
 
-  if (editCustomer) return <Navigate to={`/clientes/editar/${itemId}`} />
+  if (editCustomer) return <Navigate to={`/clientes/editar/${itemId}`} />;
 
   return (
     <section className="customer-item">

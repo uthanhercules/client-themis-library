@@ -1,41 +1,37 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import Input from "../../shared/components/LoginInput";
 import "./style.scss";
 
-import customerServices from "../../shared/services/customerServices";
+import userService from "../../shared/services/customerServices";
 
 const index = () => {
+  const [user, setUser] = useState<any>();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [loaded, setLoaded] = useState(false);
+  const { id } = useParams();
 
-  async function createCustomer(e: any) {
-    e.preventDefault();
+  useEffect(() => {
+    loadUserData();
+  }, []);
 
+  async function loadUserData() {
     const userToken = localStorage.getItem("userToken");
-    if (!userToken) {
-      toast.error("Você precisa estar logado para fazer isso.");
-      localStorage.removeItem("userToken");
-      return (window.location.href = "/login");
-    }
 
-    if (fullName.trim() === "")
-      return toast.error("Nome Completo é um campo obrigatório");
-    if (email.trim() === "")
-      return toast.error("E-mail é um campo obrigatório");
+    if (!id || !userToken) return;
 
-    const { data, ok } = await customerServices.createNewCustomer(
-      {
-        full_name: fullName,
-        email,
-      },
-      userToken
-    );
-    if (!ok) return toast.error(data);
+    const { data, ok } = await userService.getUserById(id, userToken);
 
-    return toast.success("Cliente criado com sucesso!");
+    if (!ok) return;
+
+    setUser(data[0]);
+    setFullName(data[0].full_name);
+    setEmail(data[0].email);
+    setLoaded(true);
   }
 
   return (
@@ -44,18 +40,20 @@ const index = () => {
       <h1>Editar Cliente</h1>
       <form className="new-procedure-data">
         <Input
+          value={fullName}
           className="g-input"
           type="text"
           placeholder="Nome Completo"
           action={setFullName}
         />
         <Input
+          value={email}
           className="g-input"
           type="email"
           placeholder="E-mail"
           action={setEmail}
         />
-        <button onClick={(e) => createCustomer(e)}>Criar Novo Cliente</button>
+        <button>Criar Novo Cliente</button>
       </form>
     </article>
   );

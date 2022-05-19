@@ -13,6 +13,7 @@ interface IFiveProcedures {
 }
 
 interface ILoginInput {
+  value?: string;
   className: string;
   type: string;
   placeholder: string;

@@ -17,7 +17,6 @@ const Customer = () => {
     getCustomerData();
   }, [updated]);
 
-
   useEffect(() => {
     getCustomerData();
   }, []);
