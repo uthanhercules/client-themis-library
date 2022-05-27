@@ -12,10 +12,15 @@ const index = () => {
   const [proceduresList, setProceduresList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
   const [searchProcedure, setSearchProcedure] = useState("");
+  const [reloadProcedureList, setReloadProcedureList] = useState(false);
 
   useEffect(() => {
     getProcedureData();
   }, []);
+
+  useEffect(() => {
+    getProcedureData();
+  }, [reloadProcedureList]);
 
   useEffect(() => {
     const procedures = document.querySelectorAll(".procedure-item");
@@ -83,6 +88,8 @@ const index = () => {
           return (
             <ProcedureListItem
               key={proc.updated}
+              setReloadProcedureList={setReloadProcedureList}
+              reloadProcedureList={reloadProcedureList}
               procedureNumber={proc.procedure_number}
               name={proc.name}
               customer={formatedCustomerName}

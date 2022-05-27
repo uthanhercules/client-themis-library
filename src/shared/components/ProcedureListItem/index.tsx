@@ -1,15 +1,56 @@
+/* eslint-disable react-hooks/rules-of-hooks */
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { toast } from "react-toastify";
+import apiService from "../../services/allProceduresService";
 import deleteIcon from "../../assets/delete-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import "./style.scss";
 
 interface IProcedureListItem {
+  reloadProcedureList: boolean;
+  setReloadProcedureList: any;
   procedureNumber: string;
   name: string;
   customer: string;
 }
 
-const index = ({ procedureNumber, name, customer }: IProcedureListItem) => {
+const index = ({
+  reloadProcedureList,
+  setReloadProcedureList,
+  procedureNumber,
+  name,
+  customer,
+}: IProcedureListItem) => {
+  const [currentId, setCurrentId] = useState("");
+
+  async function handleDeleteButton(id: string) {
+    if (id !== currentId) {
+      setCurrentId(id);
+      return toast.warning("Clique mais uma vez para deletar permanentemente.");
+    }
+
+    try {
+      const userToken = localStorage.getItem("userToken");
+      if (!userToken) {
+        toast.error("Você precisa estar logado para fazer isso.");
+        return (window.location.href = "/login");
+      }
+
+      const { data, ok } = await apiService.deleteProcedure(
+        userToken,
+        currentId
+      );
+
+      if (!ok) return toast.error(data);
+    } catch (err: any) {
+      return toast.error(err);
+    }
+
+    setReloadProcedureList(!reloadProcedureList);
+    return toast.success("Cliente apagado com sucesso!");
+  }
+
   return (
     <section className="procedure-item">
       <NavLink to={`/processos/${procedureNumber}`}>{procedureNumber}</NavLink>
@@ -18,7 +59,10 @@ const index = ({ procedureNumber, name, customer }: IProcedureListItem) => {
       <button className="p-edit">
         <img src={editIcon} alt="Edit Button" />
       </button>
-      <button className="p-delete">
+      <button
+        className="p-delete"
+        onClick={() => handleDeleteButton(procedureNumber)}
+      >
         <img src={deleteIcon} alt="Delete Button" />
       </button>
     </section>
