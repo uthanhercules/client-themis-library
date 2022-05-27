@@ -35,6 +35,7 @@ const index = () => {
     );
     if (!ok) return toast.error(data);
 
+    setTimeout(() => (window.location.href = "/clientes"), 2000);
     return toast.success("Cliente criado com sucesso!");
   }
 

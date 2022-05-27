@@ -73,7 +73,7 @@ const index = () => {
       return toast.error(err);
     }
 
-    setTimeout(() => window.location.href="/processos", 2000);
+    setTimeout(() => (window.location.href = "/processos"), 2000);
     return toast.success("Processo criado com sucesso!");
   }
 
