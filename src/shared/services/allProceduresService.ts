@@ -31,6 +31,21 @@ async function deleteProcedure(userToken: string, procedureNumber: string) {
   return { data: responseData, ok: response.ok };
 }
 
-const output = { getAllProcedures, deleteProcedure };
+async function createProcedure(userToken: string, data: any) {
+  const response = await fetch(`${BASE_URL}/procedure/create`, {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
+    body: JSON.stringify(data),
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
+const output = { getAllProcedures, deleteProcedure, createProcedure };
 
 export default output;
