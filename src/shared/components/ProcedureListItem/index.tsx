@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import apiService from "../../services/allProceduresService";
 import deleteIcon from "../../assets/delete-icon.svg";
@@ -23,6 +23,7 @@ const index = ({
   customer,
 }: IProcedureListItem) => {
   const [currentId, setCurrentId] = useState("");
+  const [editProcedure, setEditProcedure] = useState(false);
 
   async function handleDeleteButton(id: string) {
     if (id !== currentId) {
@@ -51,12 +52,15 @@ const index = ({
     return toast.success("Cliente apagado com sucesso!");
   }
 
+  if (editProcedure)
+    return <Navigate to={`/processos/editar/${procedureNumber}`} />;
+
   return (
     <section className="procedure-item">
       <NavLink to={`/processos/${procedureNumber}`}>{procedureNumber}</NavLink>
       <span className="p-name">{name}</span>
       <span className="c-name">{customer}</span>
-      <button className="p-edit">
+      <button className="p-edit" onClick={() => setEditProcedure(true)}>
         <img src={editIcon} alt="Edit Button" />
       </button>
       <button

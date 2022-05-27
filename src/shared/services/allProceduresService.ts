@@ -14,6 +14,23 @@ async function getAllProcedures(userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
+async function getProcedureByNumber(
+  userToken: string,
+  procedureNumber: string
+) {
+  const response = await fetch(`${BASE_URL}/procedure/${procedureNumber}`, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
 async function deleteProcedure(userToken: string, procedureNumber: string) {
   const response = await fetch(`${BASE_URL}/procedure/delete`, {
     method: "DELETE",
@@ -46,6 +63,27 @@ async function createProcedure(userToken: string, data: any) {
   return { data: responseData, ok: response.ok };
 }
 
-const output = { getAllProcedures, deleteProcedure, createProcedure };
+async function editProcedure(userToken: string, data: any) {
+  const response = await fetch(`${BASE_URL}/procedure/update`, {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
+    body: JSON.stringify(data),
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
+const output = {
+  getAllProcedures,
+  deleteProcedure,
+  createProcedure,
+  getProcedureByNumber,
+  editProcedure,
+};
 
 export default output;
