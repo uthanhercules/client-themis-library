@@ -11,6 +11,11 @@ const Customer = () => {
   const [customerList, setCustomerList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
   const [searchCustomer, setSearchCustomer] = useState("");
+  const [updated, setUpdated] = useState(false);
+
+  useEffect(() => {
+    getCustomerData();
+  }, [updated]);
 
   useEffect(() => {
     getCustomerData();
@@ -74,12 +79,12 @@ const Customer = () => {
         </header>
         {customerList.map((cust: any) => (
           <CustumerListItem
+            reloadCustomerList={setUpdated}
+            updated={updated}
             key={cust.id + cust.full_name}
             itemId={cust.id}
             fullName={cust.full_name}
             email={cust.email}
-            customerList={customerList}
-            setCustomerList={setCustomerList}
           />
         ))}
       </article>

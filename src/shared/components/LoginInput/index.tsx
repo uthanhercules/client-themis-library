@@ -3,10 +3,11 @@ import "./style.scss";
 import { ILoginInput } from "../../types/componentsTypes";
 
 const index = (props: ILoginInput) => {
-  const { type, placeholder, action } = props;
+  const { type, placeholder, action, value } = props;
 
   return (
     <input
+      value={value}
       className="login-input"
       type={type}
       placeholder={placeholder}
