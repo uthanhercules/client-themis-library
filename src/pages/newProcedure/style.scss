@@ -21,13 +21,21 @@
     .name-number {
       display: flex;
       gap: 22px;
+
+      select {
+        font-size: 14px;
+        border: none;
+        border-bottom: 1px solid $secondary-blue;
+        background-color: transparent;
+        color: #fff;
+      }
     }
 
     .name {
       width: 100%;
     }
+
     textarea {
-      font-style: normal;
       font-size: 14px;
       padding: 4px;
       border: 1px solid $secondary-blue;
