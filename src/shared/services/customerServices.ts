@@ -34,6 +34,20 @@ async function getUserById(id: string, userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-const output = { createNewCustomer, getUserById };
+async function getCustomers(userToken: string) {
+  const response = await fetch(BASE_URL + "/customer/", {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
+const output = { createNewCustomer, getUserById, getCustomers };
 
 export default output;
