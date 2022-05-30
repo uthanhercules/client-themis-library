@@ -20,6 +20,7 @@ const index = () => {
 
   useEffect(() => {
     loadProcedureData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function loadProcedureData() {
@@ -41,7 +42,7 @@ const index = () => {
     setProcedureName(data[0].name);
     setDescription(data[0].description);
     setFiles(data[0].files.length ? data[0].files.join(", ") : "");
-    setLoaded(true);
+    setLoaded(!loaded);
   }
 
   async function editProcedure(e: any) {

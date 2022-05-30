@@ -17,6 +17,7 @@ const index = () => {
 
   useEffect(() => {
     loadUserData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   async function loadUserData() {
@@ -31,7 +32,7 @@ const index = () => {
     setUser(data[0]);
     setFullName(data[0].full_name);
     setEmail(data[0].email);
-    setLoaded(true);
+    setLoaded(!loaded);
   }
 
   async function editCustomer(e: any) {
@@ -46,7 +47,7 @@ const index = () => {
     };
 
     const { data, ok } = await userService.updateCustomer(userData, userToken);
-    if (!ok) return;
+    if (!ok) return toast.error(data);
 
     toast.success("Cliente editado com sucesso!");
     return;
