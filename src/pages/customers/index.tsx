@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import LoginInput from "../../shared/components/LoginInput";
 import CustumerListItem from "../../shared/components/CustumerListItem";
-import apiService from "../../shared/services/allCustomerService";
+import apiService from "../../shared/services/customerService";
 import "./style.scss";
 
 const Customer = () => {

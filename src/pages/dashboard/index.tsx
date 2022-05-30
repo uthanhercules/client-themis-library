@@ -12,7 +12,7 @@ import NewLawsuitIconControlBoard from "../../shared/assets/newlawsuit.svg";
 import NewNlientIconControlBoard from "../../shared/assets/newclient.svg";
 import EditMyDataIconControlBoard from "../../shared/assets/editmydata.svg";
 
-import ApiService from "../../shared/services/latestLawsuitUpdatesService";
+import ApiService from "../../shared/services/procedureServices";
 
 const index = () => {
   const [lawsuitArray, setLawsuitArray] = useState([]);

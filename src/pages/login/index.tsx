@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-import ApiService from "../../shared/services/loginService";
+import ApiService from "../../shared/services/userService";
 import LoginInput from "../../shared/components/LoginInput";
 
 const index = () => {

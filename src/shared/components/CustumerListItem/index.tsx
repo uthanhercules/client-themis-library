@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { NavLink, Navigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import apiService from "../../services/allCustomerService";
+import apiService from "../../services/customerService";
 import deleteIcon from "../../assets/delete-icon.svg";
 import editIcon from "../../assets/edit-icon.svg";
 import "./style.scss";

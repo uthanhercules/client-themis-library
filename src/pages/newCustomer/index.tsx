@@ -5,7 +5,7 @@ import Header from "../../shared/components/Header";
 import Input from "../../shared/components/LoginInput";
 import "./style.scss";
 
-import customerServices from "../../shared/services/customerServices";
+import customerServices from "../../shared/services/customerService";
 
 const index = () => {
   const [fullName, setFullName] = useState("");

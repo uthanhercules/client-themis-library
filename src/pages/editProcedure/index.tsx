@@ -4,8 +4,7 @@ import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import Input from "../../shared/components/LoginInput";
-import apiService from "../../shared/services/customerServices";
-import procedureService from "../../shared/services/allProceduresService";
+import procedureService from "../../shared/services/procedureServices";
 import "./style.scss";
 
 const index = () => {
@@ -35,16 +34,13 @@ const index = () => {
 
     if (!ok) return toast.error(data);
 
-    const stringFiles = JSON.parse(data[0].files.join(", "));
-    console.log(stringFiles);
-
     setProcedureId(data[0].id);
     setCustomerId(data[0].customer_id);
     setCustomerName(data[0].customer_name);
     setProcedureNumber(data[0].procedure_number);
     setProcedureName(data[0].name);
     setDescription(data[0].description);
-    setFiles(stringFiles.length ? stringFiles : "");
+    setFiles(data[0].files.length ? data[0].files.join(", ") : "");
     setLoaded(true);
   }
 

@@ -5,7 +5,7 @@ import { Navigate } from "react-router-dom";
 import Header from "../../shared/components/Header";
 import LoginInput from "../../shared/components/LoginInput";
 import ProcedureListItem from "../../shared/components/ProcedureListItem";
-import apiService from "../../shared/services/allProceduresService";
+import apiService from "../../shared/services/procedureServices";
 import "./style.scss";
 
 const index = () => {

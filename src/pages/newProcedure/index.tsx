@@ -3,8 +3,8 @@ import React, { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import Header from "../../shared/components/Header";
 import Input from "../../shared/components/LoginInput";
-import apiService from "../../shared/services/customerServices";
-import procedureService from "../../shared/services/allProceduresService";
+import apiService from "../../shared/services/customerService";
+import procedureService from "../../shared/services/procedureServices";
 import "./style.scss";
 
 const index = () => {
@@ -28,7 +28,7 @@ const index = () => {
     }
 
     try {
-      const { data, ok } = await apiService.getCustomers(userToken);
+      const { data, ok } = await apiService.getAllCustomers(userToken);
 
       if (!ok) return toast.error(data);
 

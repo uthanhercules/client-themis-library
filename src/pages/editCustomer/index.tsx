@@ -6,8 +6,7 @@ import Header from "../../shared/components/Header";
 import Input from "../../shared/components/LoginInput";
 import "./style.scss";
 
-import userService from "../../shared/services/customerServices";
-import customerUpdate from "../../shared/services/allCustomerService";
+import userService from "../../shared/services/customerService";
 
 const index = () => {
   const [user, setUser] = useState<any>();
@@ -46,13 +45,10 @@ const index = () => {
       email,
     };
 
-    const { data, ok } = await customerUpdate.updateCustomer(
-      userData,
-      userToken
-    );
+    const { data, ok } = await userService.updateCustomer(userData, userToken);
     if (!ok) return;
 
-    toast.success("Editado!");
+    toast.success("Cliente editado com sucesso!");
     return;
   }
 
