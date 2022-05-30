@@ -1,7 +1,12 @@
 const BASE_URL = "http://localhost:8000";
 
-async function getAllProcedures(userToken: string) {
-  const response = await fetch(`${BASE_URL}/procedure`, {
+interface INewCustomer {
+  full_name: string;
+  email: string;
+}
+
+async function getAllCustomers(userToken: string) {
+  const response = await fetch(BASE_URL + "/customer", {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -14,32 +19,15 @@ async function getAllProcedures(userToken: string) {
   return { data: responseData, ok: response.ok };
 }
 
-async function getProcedureByNumber(
-  userToken: string,
-  procedureNumber: string
-) {
-  const response = await fetch(`${BASE_URL}/procedure/${procedureNumber}`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json",
-      userToken,
-    },
-  });
-
-  const responseData = await response.json();
-
-  return { data: responseData, ok: response.ok };
-}
-
-async function deleteProcedure(userToken: string, procedureNumber: string) {
-  const response = await fetch(`${BASE_URL}/procedure/delete`, {
+async function deleteCustomer(id: string, userToken: string) {
+  const response = await fetch(BASE_URL + "/customer/delete", {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
       userToken,
     },
     body: JSON.stringify({
-      procedure_number: procedureNumber,
+      id,
     }),
   });
 
@@ -48,9 +36,9 @@ async function deleteProcedure(userToken: string, procedureNumber: string) {
   return { data: responseData, ok: response.ok };
 }
 
-async function createProcedure(userToken: string, data: any) {
-  const response = await fetch(`${BASE_URL}/procedure/create`, {
-    method: "POST",
+async function updateCustomer(data: any, userToken: string) {
+  const response = await fetch(BASE_URL + "/customer/update", {
+    method: "PATCH",
     headers: {
       "Content-type": "application/json",
       userToken,
@@ -63,14 +51,28 @@ async function createProcedure(userToken: string, data: any) {
   return { data: responseData, ok: response.ok };
 }
 
-async function editProcedure(userToken: string, data: any) {
-  const response = await fetch(`${BASE_URL}/procedure/update`, {
-    method: "PUT",
+async function createNewCustomer(data: INewCustomer, userToken: string) {
+  const response = await fetch(BASE_URL + "/customer/create", {
+    method: "POST",
+    body: JSON.stringify(data),
     headers: {
       "Content-type": "application/json",
       userToken,
     },
-    body: JSON.stringify(data),
+  });
+
+  const responseData = await response.json();
+
+  return { data: responseData, ok: response.ok };
+}
+
+async function getUserById(id: string, userToken: string) {
+  const response = await fetch(BASE_URL + "/customer/" + id, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      userToken,
+    },
   });
 
   const responseData = await response.json();
@@ -79,11 +81,11 @@ async function editProcedure(userToken: string, data: any) {
 }
 
 const output = {
-  getAllProcedures,
-  deleteProcedure,
-  createProcedure,
-  getProcedureByNumber,
-  editProcedure,
+  createNewCustomer,
+  updateCustomer,
+  deleteCustomer,
+  getAllCustomers,
+  getUserById,
 };
 
 export default output;

@@ -1,17 +1,14 @@
 const BASE_URL = "http://localhost:8000";
 
-interface INewProcedure {
-  customer_id: string;
-  customer_name: string;
-  procedure_number: string;
-  name: string;
-  description: string;
-  files: string;
+interface ILogin {
+  login: string;
+  password: string;
 }
 
-interface INewCustomer {
-  full_name: string;
-  email: string;
+interface IChangePassword {
+  login: string;
+  password: string;
+  recoveryKey: string;
 }
 
 interface IAdminData {
@@ -20,8 +17,8 @@ interface IAdminData {
   email: string;
 }
 
-async function createNewProcedure(data: INewProcedure) {
-  const response = await fetch(BASE_URL + "/procedure/create", {
+async function loginService(data: ILogin) {
+  const response = await fetch(BASE_URL + "/login", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -34,8 +31,8 @@ async function createNewProcedure(data: INewProcedure) {
   return { data: responseData, ok: response.ok };
 }
 
-async function createNewCustomer(data: INewCustomer) {
-  const response = await fetch(BASE_URL + "/customer/create", {
+async function changePasswordService(data: IChangePassword) {
+  const response = await fetch(BASE_URL + "/new-password", {
     method: "POST",
     body: JSON.stringify(data),
     headers: {
@@ -62,10 +59,6 @@ async function editAdminData(data: IAdminData) {
   return { data: responseData, ok: response.ok };
 }
 
-const output = {
-  createNewProcedure,
-  createNewCustomer,
-  editAdminData,
-};
+const output = { loginService, changePasswordService, editAdminData };
 
 export default output;
