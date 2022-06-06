@@ -1,17 +1,17 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useState } from "react";
-import { toast } from "react-toastify";
-import { Navigate } from "react-router-dom";
-import Header from "../../shared/components/Header";
-import LoginInput from "../../shared/components/LoginInput";
-import ProcedureListItem from "../../shared/components/ProcedureListItem";
-import apiService from "../../shared/services/procedureServices";
-import "./style.scss";
+import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { Navigate } from 'react-router-dom';
+import Header from '../../shared/components/Header';
+import LoginInput from '../../shared/components/LoginInput';
+import ProcedureListItem from '../../shared/components/ProcedureListItem';
+import apiService from '../../shared/services/procedureServices';
+import './style.scss';
 
 const index = () => {
   const [proceduresList, setProceduresList] = useState([]);
   const [createNew, setCreateNew] = useState(false);
-  const [searchProcedure, setSearchProcedure] = useState("");
+  const [searchProcedure, setSearchProcedure] = useState('');
   const [reloadProcedureList, setReloadProcedureList] = useState(false);
 
   useEffect(() => {
@@ -23,64 +23,64 @@ const index = () => {
   }, [reloadProcedureList]);
 
   useEffect(() => {
-    const procedures = document.querySelectorAll(".procedure-item");
+    const procedures = document.querySelectorAll('.procedure-item');
 
     procedures.forEach((procedure: any) => {
       const includesSearchedWord = procedure.innerText
         .toLowerCase()
         .includes(searchProcedure.toLowerCase());
 
-      procedure.style.display = "grid";
-      if (includesSearchedWord) return (procedure.style.display = "grid");
+      procedure.style.display = 'grid';
+      if (includesSearchedWord) return (procedure.style.display = 'grid');
 
-      return (procedure.style.display = "none");
+      return (procedure.style.display = 'none');
     });
   }, [searchProcedure]);
 
   async function getProcedureData() {
-    const userToken = localStorage.getItem("userToken");
+    const userToken = localStorage.getItem('userToken');
 
     if (!userToken) return;
     const { data, ok } = await apiService.getAllProcedures(userToken);
 
     if (!ok) {
       toast.error(data);
-      localStorage.removeItem("userToken");
-      return (window.location.href = "/login");
+      localStorage.removeItem('userToken');
+      return (window.location.href = '/login');
     }
 
     return setProceduresList(data);
   }
 
   if (createNew) {
-    return <Navigate to="/processos/novo" />;
+    return <Navigate to='/processos/novo' />;
   }
 
   return (
-    <main className="App-Procedures">
+    <main className='App-Procedures'>
       <Header />
       <h1>Processos</h1>
-      <article className="procedures-panel">
+      <article className='procedures-panel'>
         <LoginInput
-          className="login-input"
-          type="text"
-          placeholder="Buscar Processo"
+          className='login-input'
+          type='text'
+          placeholder='Buscar Processo'
           action={setSearchProcedure}
         />
-        <button type="button" onClick={() => setCreateNew(true)}>
+        <button type='button' onClick={() => setCreateNew(true)}>
           + Novo Processo
         </button>
       </article>
-      <article className="procedure-list">
+      <article className='procedure-list'>
         <header>
-          <span className="procedure-number">Número</span>
-          <span className="procedure-name">Nome</span>
-          <span className="procedure-customer">Cliente</span>
-          <span className="procedure-edit"></span>
-          <span className="procedure-delete"></span>
+          <span className='procedure-number'>Número</span>
+          <span className='procedure-name'>Nome</span>
+          <span className='procedure-customer'>Cliente</span>
+          <span className='procedure-edit'></span>
+          <span className='procedure-delete'></span>
         </header>
         {proceduresList.map((proc: any) => {
-          const customerName = proc.customer_name.split(" ");
+          const customerName = proc.customer_name.split(' ');
           const formatedCustomerName = `${customerName[0]} ${
             customerName[customerName.length - 1]
           }`;

@@ -1,8 +1,8 @@
-@import "../../scss/variables.scss";
+@import '../../scss/variables.scss';
 
 .customer-item {
   display: grid;
-  grid-template-areas: "c-fullName email edit delete";
+  grid-template-areas: 'c-fullName email edit delete';
 
   grid-template-columns: 2fr 2fr 0.2fr 0.2fr;
   align-items: center;

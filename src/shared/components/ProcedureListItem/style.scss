@@ -1,8 +1,8 @@
-@import "../../scss/variables.scss";
+@import '../../scss/variables.scss';
 
 .procedure-item {
   display: grid;
-  grid-template-areas: "p-number name  customer  edit  delete";
+  grid-template-areas: 'p-number name  customer  edit  delete';
 
   grid-template-columns: 1.2fr 2fr 1fr 0.2fr 0.2fr;
   align-items: center;

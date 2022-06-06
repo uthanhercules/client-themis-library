@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = 'http://localhost:8000';
 
 interface ILogin {
   login: string;
@@ -18,11 +18,11 @@ interface IAdminData {
 }
 
 async function loginService(data: ILogin) {
-  const response = await fetch(BASE_URL + "/login", {
-    method: "POST",
+  const response = await fetch(BASE_URL + '/login', {
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
   });
 
@@ -32,11 +32,11 @@ async function loginService(data: ILogin) {
 }
 
 async function changePasswordService(data: IChangePassword) {
-  const response = await fetch(BASE_URL + "/new-password", {
-    method: "POST",
+  const response = await fetch(BASE_URL + '/new-password', {
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
   });
 
@@ -46,11 +46,11 @@ async function changePasswordService(data: IChangePassword) {
 }
 
 async function editAdminData(data: IAdminData) {
-  const response = await fetch(BASE_URL + "/admin", {
-    method: "PUT",
+  const response = await fetch(BASE_URL + '/admin', {
+    method: 'PUT',
     body: JSON.stringify(data),
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
   });
 

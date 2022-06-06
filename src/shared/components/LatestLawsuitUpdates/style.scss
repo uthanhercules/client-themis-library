@@ -1,10 +1,10 @@
-@import "../../scss/variables.scss";
+@import '../../scss/variables.scss';
 
 .Lawsuit {
   height: 40.63px;
 
   display: grid;
-  grid-template-areas: "number client name update";
+  grid-template-areas: 'number client name update';
   grid-template-columns: 1fr 1fr 1fr 1fr;
   align-items: center;
   gap: 1rem;

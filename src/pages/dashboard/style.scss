@@ -1,4 +1,4 @@
-@import "../../shared/scss/variables.scss";
+@import '../../shared/scss/variables.scss';
 
 .Container-Content {
   padding: 19px 41px 31px 310px;
@@ -42,7 +42,7 @@
 
     .Menu-Lawsuit {
       display: grid;
-      grid-template-areas: "number client name update";
+      grid-template-areas: 'number client name update';
       grid-template-columns: 1fr 1fr 1fr 1fr;
       gap: 1rem;
 

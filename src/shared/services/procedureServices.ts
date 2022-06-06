@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = 'http://localhost:8000';
 
 interface INewProcedure {
   customer_id: string;
@@ -10,11 +10,11 @@ interface INewProcedure {
 }
 
 async function createNewProcedure(data: INewProcedure) {
-  const response = await fetch(BASE_URL + "/procedure/create", {
-    method: "POST",
+  const response = await fetch(BASE_URL + '/procedure/create', {
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
   });
 
@@ -24,10 +24,10 @@ async function createNewProcedure(data: INewProcedure) {
 }
 
 async function getAllProcedures(userToken: string) {
-  const response = await fetch(BASE_URL + "/procedure", {
-    method: "GET",
+  const response = await fetch(BASE_URL + '/procedure', {
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
   });
@@ -41,10 +41,10 @@ async function getProcedureByNumber(
   userToken: string,
   procedureNumber: string
 ) {
-  const response = await fetch(BASE_URL + "/procedure/" + procedureNumber, {
-    method: "GET",
+  const response = await fetch(BASE_URL + '/procedure/' + procedureNumber, {
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
   });
@@ -55,10 +55,10 @@ async function getProcedureByNumber(
 }
 
 async function deleteProcedure(userToken: string, procedureNumber: string) {
-  const response = await fetch(BASE_URL + "/procedure/delete", {
-    method: "DELETE",
+  const response = await fetch(BASE_URL + '/procedure/delete', {
+    method: 'DELETE',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
     body: JSON.stringify({
@@ -72,10 +72,10 @@ async function deleteProcedure(userToken: string, procedureNumber: string) {
 }
 
 async function createProcedure(userToken: string, data: any) {
-  const response = await fetch(BASE_URL + "/procedure/create", {
-    method: "POST",
+  const response = await fetch(BASE_URL + '/procedure/create', {
+    method: 'POST',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
     body: JSON.stringify(data),
@@ -87,10 +87,10 @@ async function createProcedure(userToken: string, data: any) {
 }
 
 async function editProcedure(userToken: string, data: any) {
-  const response = await fetch(BASE_URL + "/procedure/update", {
-    method: "PUT",
+  const response = await fetch(BASE_URL + '/procedure/update', {
+    method: 'PUT',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
     body: JSON.stringify(data),
@@ -102,10 +102,10 @@ async function editProcedure(userToken: string, data: any) {
 }
 
 async function getFiveLastProcedures(userToken: string) {
-  const response = await fetch(BASE_URL + "/procedure/list-recent", {
-    method: "GET",
+  const response = await fetch(BASE_URL + '/procedure/list-recent', {
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
   });

@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = 'http://localhost:8000';
 
 interface INewCustomer {
   full_name: string;
@@ -6,10 +6,10 @@ interface INewCustomer {
 }
 
 async function getAllCustomers(userToken: string) {
-  const response = await fetch(BASE_URL + "/customer", {
-    method: "GET",
+  const response = await fetch(BASE_URL + '/customer', {
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
   });
@@ -20,10 +20,10 @@ async function getAllCustomers(userToken: string) {
 }
 
 async function deleteCustomer(id: string, userToken: string) {
-  const response = await fetch(BASE_URL + "/customer/delete", {
-    method: "DELETE",
+  const response = await fetch(BASE_URL + '/customer/delete', {
+    method: 'DELETE',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
     body: JSON.stringify({
@@ -37,10 +37,10 @@ async function deleteCustomer(id: string, userToken: string) {
 }
 
 async function updateCustomer(data: any, userToken: string) {
-  const response = await fetch(BASE_URL + "/customer/update", {
-    method: "PATCH",
+  const response = await fetch(BASE_URL + '/customer/update', {
+    method: 'PATCH',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
     body: JSON.stringify(data),
@@ -52,11 +52,11 @@ async function updateCustomer(data: any, userToken: string) {
 }
 
 async function createNewCustomer(data: INewCustomer, userToken: string) {
-  const response = await fetch(BASE_URL + "/customer/create", {
-    method: "POST",
+  const response = await fetch(BASE_URL + '/customer/create', {
+    method: 'POST',
     body: JSON.stringify(data),
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
   });
@@ -67,10 +67,10 @@ async function createNewCustomer(data: INewCustomer, userToken: string) {
 }
 
 async function getUserById(id: string, userToken: string) {
-  const response = await fetch(BASE_URL + "/customer/" + id, {
-    method: "GET",
+  const response = await fetch(BASE_URL + '/customer/' + id, {
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
       userToken,
     },
   });

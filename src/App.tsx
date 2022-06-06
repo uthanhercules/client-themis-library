@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import "./shared/scss/global.scss";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import './shared/scss/global.scss';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
-import Outlet from "./routes/outlet";
-import MainAsideMenu from "./shared/components/MainAsideMenu";
+import Outlet from './routes/outlet';
+import MainAsideMenu from './shared/components/MainAsideMenu';
 
 function App() {
   const [auth, setAuth] = useState(false);
 
   useEffect(() => {
-    const isAuth = localStorage.getItem("userToken");
+    const isAuth = localStorage.getItem('userToken');
     if (isAuth) {
       setAuth(true);
     }
@@ -19,8 +19,8 @@ function App() {
 
   return (
     <>
-      <ToastContainer theme="dark" />
-      <main className="App">
+      <ToastContainer theme='dark' />
+      <main className='App'>
         {auth ? <MainAsideMenu /> : null}
         <Outlet />
       </main>

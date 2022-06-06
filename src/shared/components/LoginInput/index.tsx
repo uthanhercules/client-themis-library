@@ -1,6 +1,6 @@
-import React from "react";
-import "./style.scss";
-import { ILoginInput } from "../../types/componentsTypes";
+import React from 'react';
+import './style.scss';
+import { ILoginInput } from '../../types/componentsTypes';
 
 const index = (props: ILoginInput) => {
   const { type, placeholder, action, value } = props;
@@ -8,7 +8,7 @@ const index = (props: ILoginInput) => {
   return (
     <input
       value={value}
-      className="login-input"
+      className='login-input'
       type={type}
       placeholder={placeholder}
       onChange={(e) => action(e.target.value)}

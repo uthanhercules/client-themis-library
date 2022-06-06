@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "npx prettier --write ./src"
+    "lint": "npx prettier --config ./prettierrc.json --write ./src"
   },
   "eslintConfig": {
     "extends": [
