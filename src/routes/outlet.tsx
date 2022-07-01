@@ -10,6 +10,7 @@ import Customers from '../pages/customers';
 import NewCustomer from '../pages/newCustomer';
 import EditCustomer from '../pages/editCustomer';
 import EditProcedure from '../pages/editProcedure';
+import CustomerDetails from '../pages/customerDetails';
 
 function ProtectedRoutes({ redirectTo }: { redirectTo: string }) {
   const isAuth = localStorage.getItem('userToken');
@@ -33,6 +34,7 @@ const outlet = () => (
       <Route path='/clientes/editar/:id' element={<EditCustomer />} />
       <Route path='/clientes/novo' element={<NewCustomer />} />
       <Route path='/clientes' element={<Customers />} />
+      <Route path='/clientes/:id' element={<CustomerDetails />} />
     </Route>
   </Routes>
 );
