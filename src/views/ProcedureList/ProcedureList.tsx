@@ -10,6 +10,7 @@ import {
   Td,
   TableContainer,
   Input,
+  Button,
 } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
@@ -22,6 +23,7 @@ const ProcedureList = () => {
   const [currentId, setCurrentId] = useState('');
   const [editProcedure, setEditProcedure] = useState(false);
   const [searchProcedure, setSearchProcedure] = useState('');
+  const [createNew, setCreateNew] = useState(false);
 
   useEffect(() => {
     loadProcedures();
@@ -74,6 +76,7 @@ const ProcedureList = () => {
   }
 
   if (editProcedure) return <Navigate to={`/processos/editar/${currentId}`} />;
+  if (createNew) return <Navigate to={`/processos/novo`} />;
 
   return (
     <article className='procedure-list'>
@@ -83,6 +86,13 @@ const ProcedureList = () => {
           placeholder='Pesquisar Processo'
           onChange={(e: any) => setSearchProcedure(e.target.value)}
         />
+        <Button
+          type='button'
+          colorScheme='teal'
+          onClick={() => setCreateNew(true)}
+        >
+          Criar novo Processo
+        </Button>
         <TableContainer>
           <Table variant='striped' colorScheme='teal'>
             <Thead>
