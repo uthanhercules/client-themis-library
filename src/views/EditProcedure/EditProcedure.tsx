@@ -20,7 +20,6 @@ const EditProcedure = () => {
 
   useEffect(() => {
     loadProcedureData();
-    console.log(procedureNumber);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

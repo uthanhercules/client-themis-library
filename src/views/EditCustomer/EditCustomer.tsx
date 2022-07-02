@@ -49,7 +49,7 @@ const EditCustomer = () => {
   };
 
   return (
-    <article className='new-procedure'>
+    <article className='edit-customer'>
       {created ? <Navigate to='/clientes' /> : null}
       <section className='content'>
         <Heading as='h1'>Editar Cliente</Heading>

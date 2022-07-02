@@ -1,4 +1,3 @@
-import React from 'react';
 import { IProtectedRoutes } from './types/routeTypes';
 import {
   BrowserRouter,
