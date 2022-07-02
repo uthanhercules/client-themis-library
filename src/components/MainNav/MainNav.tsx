@@ -18,9 +18,8 @@ import './mainNav.scss';
 const MainNav = () => {
   const logout = (): void => {
     deleteToken();
+    verifyAuth();
   };
-
-  verifyAuth();
 
   return (
     <article className='main-menu'>

@@ -10,7 +10,7 @@ const login = async (data: ILogin) => {
     },
   });
 
-  const responseData = response.json();
+  const responseData = await response.json();
   return { data: responseData, ok: response.ok };
 };
 
@@ -23,8 +23,8 @@ const newPassword = async (data: INewPassword) => {
     },
   });
 
-  const responseData = response.json();
+  const responseData = await response.json();
   return { data: responseData, ok: response.ok };
 };
 
-export { login, newPassword };
+export const adminService = { login, newPassword };

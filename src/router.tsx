@@ -10,11 +10,13 @@ import {
 
 import MainNav from './components/MainNav/MainNav';
 
+import Login from './views/Login/Login';
 import Home from './views/Home/home';
 import Features from './views/Features/features';
+import { getToken } from './utils/localStorage';
 
 const ProtectedRoutes = ({ routePath }: IProtectedRoutes) => {
-  const isAuth: boolean = true; // Protection Function here
+  const isAuth: string | null = getToken();
   return isAuth ? <Outlet /> : <Navigate to={routePath} />;
 };
 
@@ -23,15 +25,15 @@ const RouterOutlet = () => {
     <BrowserRouter>
       <MainNav />
       <Routes>
-        <Route element={<Home />}>
-          <Route element={<Home />} path='/' />
-          <Route element={<Home />} path='/home' />
+        <Route element={<Login />}>
+          <Route element={<Login />} path='/' />
+          <Route element={<Login />} path='/login' />
         </Route>
 
-        <Route element={<Features />} path='/features' />
-
-        <Route element={<ProtectedRoutes routePath='/' />}>
-          {/* Protected Routes */}
+        <Route element={<ProtectedRoutes routePath='/login' />}>
+          <Route element={<Home />} path='/painel' />
+          <Route element={<Features />} path='/processos' />
+          <Route element={<Features />} path='/clientes' />
         </Route>
       </Routes>
     </BrowserRouter>

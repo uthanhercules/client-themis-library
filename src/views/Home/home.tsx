@@ -3,10 +3,12 @@ import { Heading, Text, Button } from '@chakra-ui/react';
 import { Navigate } from 'react-router-dom';
 
 import './home.style.scss';
+import { verifyAuth } from '../../services/authService';
 
 function Home() {
   const [featuresRedirect, setFeaturesRedirect] = useState(false);
 
+  verifyAuth();
   return (
     <div className='Home'>
       {featuresRedirect ? <Navigate to='/features' /> : null}
