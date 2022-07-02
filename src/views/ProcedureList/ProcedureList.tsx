@@ -9,6 +9,7 @@ import {
   Th,
   Td,
   TableContainer,
+  Input,
 } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
@@ -20,10 +21,32 @@ const ProcedureList = () => {
   const [proceduresList, setProceduresList] = useState([]);
   const [currentId, setCurrentId] = useState('');
   const [editProcedure, setEditProcedure] = useState(false);
+  const [searchProcedure, setSearchProcedure] = useState('');
 
   useEffect(() => {
     loadProcedures();
   }, []);
+
+  useEffect(() => {
+    const procedures: NodeListOf<HTMLTableRowElement> =
+      document.querySelectorAll('.procedure-item');
+
+    procedures.forEach((procedure: HTMLElement) => {
+      console.log(procedure.innerText);
+      const includesSearchedWord = procedure.innerText
+        .toLowerCase()
+        .includes(searchProcedure.toLowerCase());
+
+      procedure.classList.remove('hidden');
+
+      if (includesSearchedWord) {
+        procedure.classList.remove('hidden');
+        return;
+      }
+
+      return procedure.classList.add('hidden');
+    });
+  }, [searchProcedure]);
 
   const loadProcedures = async () => {
     const api = await procedureService.getUniqueProcedures();
@@ -57,6 +80,10 @@ const ProcedureList = () => {
     <article className='procedure-list'>
       <section className='content'>
         <Heading as='h1'>Lista de Processos</Heading>
+        <Input
+          placeholder='Pesquisar Processo'
+          onChange={(e: any) => setSearchProcedure(e.target.value)}
+        />
         <TableContainer>
           <Table variant='striped' colorScheme='teal'>
             <Thead>
@@ -71,7 +98,7 @@ const ProcedureList = () => {
             <Tbody>
               {proceduresList.map((item: IProcedure) => {
                 return (
-                  <Tr key={item.procedure_number}>
+                  <Tr key={item.procedure_number} className='procedure-item'>
                     <Td>{item.procedure_number}</Td>
                     <Td>{item.name}</Td>
                     <Td>{item.customer_name}</Td>
