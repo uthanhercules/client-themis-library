@@ -7,12 +7,13 @@ import { useParams } from 'react-router-dom';
 import { procedureService } from '../../services/procedureService';
 
 const EditProcedure = () => {
+  const [procedureId, setProcedureId] = useState('');
   const [customerId, setCustomerId] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [procedureNumber, setProcedureNumber] = useState('');
   const [procedureName, setProcedureName] = useState('');
   const [description, setDescription] = useState('');
-  const [files, setFiles] = useState(['']);
+  const [files, setFiles] = useState('');
   const [created, setCreated] = useState(false);
   const { id } = useParams();
 
@@ -32,13 +33,13 @@ const EditProcedure = () => {
     }
 
     const api: any = await procedureService.editProcedure({
-      id: id,
+      id: procedureId,
       customer_id: customerId,
       customer_name: customerName,
       procedure_number: procedureNumber,
       name: procedureName,
       description,
-      files: JSON.stringify(files),
+      files: JSON.stringify(files.split(',')),
       finished: false,
     });
 
@@ -53,6 +54,7 @@ const EditProcedure = () => {
 
     if (!api.ok) return toast.error(api.data);
 
+    setProcedureId(api.data[0].id);
     setCustomerId(api.data[0].customer_id);
     setProcedureNumber(api.data[0].procedure_number);
     setProcedureName(api.data[0].name);

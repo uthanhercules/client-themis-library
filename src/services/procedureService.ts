@@ -80,7 +80,7 @@ const editProcedure = async (data: IEditProcedure) => {
       ok: false,
     };
 
-  const response = await fetch(`${BASE_URL}/procedure/create`, {
+  const response = await fetch(`${BASE_URL}/procedure/update`, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {
