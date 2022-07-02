@@ -1,5 +1,5 @@
 import { ILogin, INewPassword } from '../types/adminServiceTypes';
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://nuneslisboa.herokuapp.com';
 
 const login = async (data: ILogin) => {
   const response = await fetch(`${BASE_URL}/login`, {

@@ -1,6 +1,6 @@
 import { ICreateCustomer, IDeleteCustomerData } from '../types/customerTypes';
 import { getToken } from '../utils/localStorage';
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://nuneslisboa.herokuapp.com';
 
 const getAllCustomers = async () => {
   const userToken = getToken();

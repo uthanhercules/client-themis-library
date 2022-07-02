@@ -31,7 +31,6 @@ const Login = () => {
       login: username,
       password,
     });
-
     if (!api.ok) return toast.error(api.data);
 
     toast.success('Login realizado com sucesso!');

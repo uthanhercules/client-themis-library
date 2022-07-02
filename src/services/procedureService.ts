@@ -1,6 +1,6 @@
 import { IDeleteProcedureData } from '../types/procedureTypes';
 import { getToken } from '../utils/localStorage';
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://nuneslisboa.herokuapp.com';
 
 const getUniqueProcedures = async () => {
   const userToken = getToken();

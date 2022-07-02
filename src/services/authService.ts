@@ -1,6 +1,6 @@
 import { getToken } from '../utils/localStorage';
 import { toast } from 'react-toastify';
-const BASE_URL = 'http://localhost:8000';
+const BASE_URL = 'https://nuneslisboa.herokuapp.com';
 
 const verifyAuth = async () => {
   const userToken = getToken();
