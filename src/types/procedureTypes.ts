@@ -18,3 +18,14 @@ export interface ICreateProcedures {
   description: string;
   files: string;
 }
+
+export interface IEditProcedure {
+  id: string;
+  customer_id: string;
+  customer_name: string;
+  procedure_number: string;
+  name: string;
+  description: string;
+  files: string;
+  finished: boolean;
+}

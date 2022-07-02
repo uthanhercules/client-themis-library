@@ -1,21 +1,28 @@
-import './createProcedure.scss';
-import { Heading, Input, Button, Select, Textarea } from '@chakra-ui/react';
+import './editProcedure.scss';
+import { Heading, Input, Button, Textarea } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { customerService } from '../../services/customerService';
-import { ICustomer } from '../../types/customerTypes';
+import { useParams } from 'react-router-dom';
 import { procedureService } from '../../services/procedureService';
 
-const CreateProcedure = () => {
+const EditProcedure = () => {
   const [customerId, setCustomerId] = useState('');
   const [customerName, setCustomerName] = useState('');
   const [procedureNumber, setProcedureNumber] = useState('');
   const [procedureName, setProcedureName] = useState('');
   const [description, setDescription] = useState('');
   const [files, setFiles] = useState(['']);
-  const [customerList, setCustomerList] = useState([]);
   const [created, setCreated] = useState(false);
+  const { id } = useParams();
+
+  useEffect(() => {
+    loadProcedureData();
+    console.log(procedureNumber);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  if (!id) return <Navigate to='/processos' />;
 
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,13 +31,15 @@ const CreateProcedure = () => {
       return toast.error('Todos os campos são obrigatórios.');
     }
 
-    const api: any = await procedureService.createProcedure({
+    const api: any = await procedureService.editProcedure({
+      id: id,
       customer_id: customerId,
       customer_name: customerName,
       procedure_number: procedureNumber,
       name: procedureName,
       description,
       files: JSON.stringify(files),
+      finished: false,
     });
 
     if (!api.ok) return toast.error(api.data);
@@ -39,60 +48,50 @@ const CreateProcedure = () => {
     setCreated(true);
   };
 
-  useEffect(() => {
-    loadCustomers();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const loadCustomers = async () => {
-    const api: any = await customerService.getAllCustomers();
+  const loadProcedureData = async () => {
+    const api: any = await procedureService.getProcedureById(id);
 
     if (!api.ok) return toast.error(api.data);
-    setCustomerList(api.data);
+
+    setCustomerId(api.data[0].customer_id);
+    setProcedureNumber(api.data[0].procedure_number);
+    setProcedureName(api.data[0].name);
+    setCustomerName(api.data[0].customer_name);
+    setDescription(api.data[0].description);
+    setFiles(
+      api.data[0].files.length ? JSON.parse(api.data[0].files).join(', ') : ''
+    );
   };
 
   return (
     <article className='new-procedure'>
       {created ? <Navigate to='/processos' /> : null}
       <section className='content'>
-        <Heading as='h1'>Criar Novo Processo</Heading>
+        <Heading as='h1'>Editar Processo</Heading>
         <form onSubmit={handleFormSubmit}>
           <Input
             type='number'
             placeholder='Número do Processo*'
+            value={procedureNumber}
             onChange={(e: any) => setProcedureNumber(e.target.value)}
           />
           <Input
             type='text'
             placeholder='Nome do Processo*'
+            value={procedureName}
             onChange={(e: any) => setProcedureName(e.target.value)}
           />
-          <Select
-            placeholder='Selecione o Cliente'
-            onChange={(e: any) => {
-              const actualIndex = e.target.options.selectedIndex;
-
-              setCustomerId(e.target.value);
-              setCustomerName(e.target.options[actualIndex].innerText);
-            }}
-          >
-            {customerList.map((item: ICustomer) => {
-              return (
-                <option key={item.id} value={item.id}>
-                  {item.full_name}
-                </option>
-              );
-            })}
-          </Select>
           <Textarea
             placeholder='Descrição do Processo*'
             rows={5}
+            value={description}
             onChange={(e: any) => setDescription(e.target.value)}
           ></Textarea>
           <Input
             className='g-input'
             type='text'
             placeholder='Links do Drive (Separe-os com vírgulas)'
+            value={files}
             onChange={(e: any) => setFiles(e.target.value.split(','))}
           />
           <Button type='submit' colorScheme='teal'>
@@ -104,4 +103,4 @@ const CreateProcedure = () => {
   );
 };
 
-export default CreateProcedure;
+export default EditProcedure;
