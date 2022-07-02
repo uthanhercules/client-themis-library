@@ -1,0 +1,19 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+
+  h1 {
+    color: $udev-blue;
+  }
+
+  button {
+    margin-top: rem(16px);
+  }
+}

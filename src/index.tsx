@@ -1,11 +1,20 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
-import App from './App';
+import ReactDOM from 'react-dom/client';
+import RouterOutlet from './router';
+import { ChakraProvider } from '@chakra-ui/react';
+import { ToastContainer } from 'react-toastify';
 
-ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
-  document.getElementById('root')
+import 'react-toastify/dist/ReactToastify.css';
+import './styles/global.scss';
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
+root.render(
+  <React.StrictMode>
+    <ChakraProvider>
+      <ToastContainer />
+      <RouterOutlet />
+    </ChakraProvider>
+  </React.StrictMode>
 );
