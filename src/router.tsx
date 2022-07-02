@@ -8,6 +8,8 @@ import {
   Navigate,
 } from 'react-router-dom';
 
+import MainNav from './components/MainNav/MainNav';
+
 import Home from './views/Home/home';
 import Features from './views/Features/features';
 
@@ -19,6 +21,7 @@ const ProtectedRoutes = ({ routePath }: IProtectedRoutes) => {
 const RouterOutlet = () => {
   return (
     <BrowserRouter>
+      <MainNav />
       <Routes>
         <Route element={<Home />}>
           <Route element={<Home />} path='/' />
