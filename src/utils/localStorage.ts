@@ -1,5 +1,6 @@
 export const deleteToken = () => {
   localStorage.removeItem('userToken');
+  localStorage.removeItem('id');
 };
 
 export const getToken = () => {

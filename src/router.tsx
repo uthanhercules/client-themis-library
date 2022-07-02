@@ -11,6 +11,7 @@ import {
 import MainNav from './components/MainNav/MainNav';
 
 import Login from './views/Login/Login';
+import NewPassword from './views/NewPassword/NewPassword';
 import Home from './views/Home/home';
 import Features from './views/Features/features';
 import { getToken } from './utils/localStorage';
@@ -29,6 +30,8 @@ const RouterOutlet = () => {
           <Route element={<Login />} path='/' />
           <Route element={<Login />} path='/login' />
         </Route>
+
+        <Route element={<NewPassword />} path='/redefinir-senha' />
 
         <Route element={<ProtectedRoutes routePath='/login' />}>
           <Route element={<Home />} path='/painel' />

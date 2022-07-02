@@ -5,6 +5,6 @@ export interface ILogin {
 
 export interface INewPassword {
   login: string;
-  passsword: string;
+  password: string;
   recoveryKey: string;
 }
