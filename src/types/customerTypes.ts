@@ -7,3 +7,8 @@ export interface ICustomer {
 export interface IDeleteCustomerData {
   id: string;
 }
+
+export interface ICreateCustomer {
+  full_name: string;
+  email: string;
+}
