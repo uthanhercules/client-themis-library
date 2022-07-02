@@ -14,7 +14,7 @@ import Login from './views/Login/Login';
 import NewPassword from './views/NewPassword/NewPassword';
 import Home from './views/Home/home';
 import ProcedureList from './views/ProcedureList/ProcedureList';
-import Features from './views/Features/features';
+import CustomerList from './views/CustomerList/CustomerList';
 import { getToken } from './utils/localStorage';
 
 const ProtectedRoutes = ({ routePath }: IProtectedRoutes) => {
@@ -37,7 +37,7 @@ const RouterOutlet = () => {
         <Route element={<ProtectedRoutes routePath='/login' />}>
           <Route element={<Home />} path='/painel' />
           <Route element={<ProcedureList />} path='/processos' />
-          <Route element={<Features />} path='/clientes' />
+          <Route element={<CustomerList />} path='/clientes' />
         </Route>
       </Routes>
     </BrowserRouter>
