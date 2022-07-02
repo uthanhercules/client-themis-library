@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { customerService } from '../../services/customerService';
 import { ICustomer } from '../../types/customerTypes';
+import { procedureService } from '../../services/procedureService';
 
 const CreateProcedure = () => {
   const [customerId, setCustomerId] = useState('');
@@ -19,27 +20,23 @@ const CreateProcedure = () => {
   const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // if (!customerId || !procedureName || !procedureNumber || !description) {
-    //   return toast.error('Todos os campos são obrigatórios.');
-    // }
+    if (!customerId || !procedureName || !procedureNumber || !description) {
+      return toast.error('Todos os campos são obrigatórios.');
+    }
 
-    console.log(
-      customerName,
-      procedureName,
-      procedureNumber,
+    const api: any = await procedureService.createProcedure({
+      customer_id: customerId,
+      customer_name: customerName,
+      procedure_number: procedureNumber,
+      name: procedureName,
       description,
-      files
-    );
+      files: JSON.stringify(files),
+    });
 
-    // const api: any = await customerService.createCustomer({
-    //   full_name: fullName,
-    //   email,
-    // });
-
-    // if (!api.ok) return toast.error(api.data);
+    if (!api.ok) return toast.error(api.data);
 
     toast.success('Processo criado com sucesso!');
-    // setCreated(true);
+    setCreated(true);
   };
 
   useEffect(() => {
@@ -96,7 +93,7 @@ const CreateProcedure = () => {
             className='g-input'
             type='text'
             placeholder='Links do Drive (Separe-os com vírgulas)'
-            onChange={(e) => setFiles(e.target.value.split(', '))}
+            onChange={(e) => setFiles(e.target.value.split(','))}
           />
           <Button type='submit' colorScheme='teal'>
             Registrar Novo Cliente

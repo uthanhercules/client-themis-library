@@ -9,3 +9,12 @@ export interface IProcedure {
 export interface IDeleteProcedureData {
   procedure_number: string;
 }
+
+export interface ICreateProcedures {
+  customer_id: string;
+  customer_name: string;
+  procedure_number: string;
+  name: string;
+  description: string;
+  files: string;
+}
