@@ -13,6 +13,7 @@ import MainNav from './components/MainNav/MainNav';
 import Login from './views/Login/Login';
 import NewPassword from './views/NewPassword/NewPassword';
 import Home from './views/Home/home';
+import ProcedureList from './views/ProcedureList/ProcedureList';
 import Features from './views/Features/features';
 import { getToken } from './utils/localStorage';
 
@@ -35,7 +36,7 @@ const RouterOutlet = () => {
 
         <Route element={<ProtectedRoutes routePath='/login' />}>
           <Route element={<Home />} path='/painel' />
-          <Route element={<Features />} path='/processos' />
+          <Route element={<ProcedureList />} path='/processos' />
           <Route element={<Features />} path='/clientes' />
         </Route>
       </Routes>

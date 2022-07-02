@@ -1,19 +1,18 @@
 @import '../../styles/variables';
 @import '../../styles/mixins';
 
-.Home {
+.procedure-list {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 100vw;
   height: 100vh;
+  margin-top: 64px;
 
-  h1 {
-    color: $udev-blue;
-  }
+  .content {
+    width: 1080px;
 
-  button {
-    margin-top: rem(16px);
+    h1 {
+      color: $udev-blue;
+    }
   }
 }

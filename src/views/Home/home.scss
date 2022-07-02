@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.home {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 64px;
+
+  .content {
+    width: 1080px;
+
+    h1 {
+      color: $udev-blue;
+    }
+
+    .action-buttons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    h2 {
+      margin-top: 32px;
+    }
+  }
+}
