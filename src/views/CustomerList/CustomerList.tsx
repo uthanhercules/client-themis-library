@@ -10,6 +10,7 @@ import {
   Td,
   TableContainer,
   Input,
+  Button,
 } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 import { useEffect, useState } from 'react';
@@ -22,6 +23,7 @@ const CustomerList = () => {
   const [currentId, setCurrentId] = useState('');
   const [editCustomer, setEditCustomer] = useState(false);
   const [searchCustomer, setSearchCustomer] = useState('');
+  const [createNew, setCreateNew] = useState(false);
 
   useEffect(() => {
     loadCustomers();
@@ -74,6 +76,7 @@ const CustomerList = () => {
   }
 
   if (editCustomer) return <Navigate to={`/clientes/editar/${currentId}`} />;
+  if (createNew) return <Navigate to={`/clientes/novo`} />;
 
   return (
     <article className='procedure-list'>
@@ -83,6 +86,13 @@ const CustomerList = () => {
           placeholder='Pesquisar Cliente'
           onChange={(e: any) => setSearchCustomer(e.target.value)}
         />
+        <Button
+          type='button'
+          colorScheme='teal'
+          onClick={() => setCreateNew(true)}
+        >
+          Criar novo Cliente
+        </Button>
         <TableContainer>
           <Table variant='striped' colorScheme='teal'>
             <Thead>
