@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { procedureService } from '../../services/procedureService';
+import { IApiResponse } from '../../types/routeTypes';
 
 const EditProcedure = () => {
   const [procedureId, setProcedureId] = useState('');
@@ -32,7 +33,7 @@ const EditProcedure = () => {
       return toast.error('Todos os campos são obrigatórios.');
     }
 
-    const api: any = await procedureService.editProcedure({
+    const api: IApiResponse = await procedureService.editProcedure({
       id: procedureId,
       customer_id: customerId,
       customer_name: customerName,
@@ -50,7 +51,7 @@ const EditProcedure = () => {
   };
 
   const loadProcedureData = async () => {
-    const api: any = await procedureService.getProcedureById(id);
+    const api: IApiResponse = await procedureService.getProcedureById(id);
 
     if (!api.ok) return toast.error(api.data);
 

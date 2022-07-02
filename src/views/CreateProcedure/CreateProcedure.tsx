@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { customerService } from '../../services/customerService';
 import { ICustomer } from '../../types/customerTypes';
 import { procedureService } from '../../services/procedureService';
+import { IApiResponse } from '../../types/routeTypes';
 
 const CreateProcedure = () => {
   const [customerId, setCustomerId] = useState('');
@@ -45,7 +46,7 @@ const CreateProcedure = () => {
   }, []);
 
   const loadCustomers = async () => {
-    const api: any = await customerService.getAllCustomers();
+    const api: IApiResponse = await customerService.getAllCustomers();
 
     if (!api.ok) return toast.error(api.data);
     setCustomerList(api.data);

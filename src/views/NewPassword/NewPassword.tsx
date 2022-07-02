@@ -13,6 +13,7 @@ import { adminService } from '../../services/adminService';
 import './newPassword.scss';
 import { toast } from 'react-toastify';
 import { deleteToken } from '../../utils/localStorage';
+import { IApiResponse } from '../../types/routeTypes';
 
 const NewPassword = () => {
   const [username, setUsername] = useState('');
@@ -28,7 +29,7 @@ const NewPassword = () => {
       return toast.error('Todos os campos são obrigatórios.');
     }
 
-    const api: any = await adminService.newPassword({
+    const api: IApiResponse = await adminService.newPassword({
       login: username,
       password,
       recoveryKey,
