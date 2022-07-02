@@ -32,7 +32,6 @@ const ProcedureList = () => {
       document.querySelectorAll('.procedure-item');
 
     procedures.forEach((procedure: HTMLElement) => {
-      console.log(procedure.innerText);
       const includesSearchedWord = procedure.innerText
         .toLowerCase()
         .includes(searchProcedure.toLowerCase());

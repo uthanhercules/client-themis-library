@@ -32,7 +32,6 @@ const CustomerList = () => {
       document.querySelectorAll('.customer-item');
 
     customers.forEach((customer: HTMLElement) => {
-      console.log(customer.innerText);
       const includesSearchedWord = customer.innerText
         .toLowerCase()
         .includes(searchCustomer.toLowerCase());
@@ -55,7 +54,6 @@ const CustomerList = () => {
       toast.error('Você precisa estar logado para fazer isso!');
       return (window.location.href = '/login');
     }
-    console.log(api.data);
     setCustomerList(api.data);
   };
 
