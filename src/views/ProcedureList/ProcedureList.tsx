@@ -17,8 +17,11 @@ import { useEffect, useState } from 'react';
 import { procedureService } from '../../services/procedureService';
 import { toast } from 'react-toastify';
 import { IProcedure } from '../../types/procedureTypes';
+import { verifyAuth } from '../../services/authService';
+import { deleteToken } from '../../utils/localStorage';
 
 const ProcedureList = () => {
+  verifyAuth();
   const [proceduresList, setProceduresList] = useState([]);
   const [currentId, setCurrentId] = useState('');
   const [editProcedure, setEditProcedure] = useState(false);
@@ -54,7 +57,7 @@ const ProcedureList = () => {
 
     if (!api.ok) {
       toast.error('Você precisa estar logado para fazer isso!');
-      return (window.location.href = '/login');
+      deleteToken();
     }
     setProceduresList(api.data);
   };

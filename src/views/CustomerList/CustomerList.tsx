@@ -17,8 +17,11 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { customerService } from '../../services/customerService';
 import { ICustomer } from '../../types/customerTypes';
+import { verifyAuth } from '../../services/authService';
+import { deleteToken } from '../../utils/localStorage';
 
 const CustomerList = () => {
+  verifyAuth();
   const [customerList, setCustomerList] = useState([]);
   const [currentId, setCurrentId] = useState('');
   const [editCustomer, setEditCustomer] = useState(false);
@@ -54,7 +57,7 @@ const CustomerList = () => {
 
     if (!api.ok) {
       toast.error('Você precisa estar logado para fazer isso!');
-      return (window.location.href = '/login');
+      deleteToken();
     }
     setCustomerList(api.data);
   };
