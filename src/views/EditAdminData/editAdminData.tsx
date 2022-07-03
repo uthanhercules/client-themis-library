@@ -1,5 +1,11 @@
 import './editAdminData.scss';
-import { Heading, Input, Button } from '@chakra-ui/react';
+import { 
+  Heading, 
+  Input, 
+  InputGroup,
+  InputRightElement, 
+  Button 
+} from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -13,11 +19,12 @@ function EditAdminData() {
     const [password, setPassword] = useState('');
 
     const [created, setCreated] = useState(false);
+    const [show, setShow] = useState(false);
 
     const id = getAdminId();
 
     useEffect(() => {
-      // loadAdminData();
+      loadAdminData();
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -70,12 +77,20 @@ function EditAdminData() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <Input
-                type='text'
-                placeholder='Senha'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <InputGroup>
+            <Input
+              variant='flushed'
+              type={show ? 'text' : 'password'}
+              placeholder='Senha'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <InputRightElement width='4.5rem'>
+              <Button size='sm' onClick={() => setShow(!show)}>
+                {show ? 'Esconder' : 'Mostrar'}
+              </Button>
+            </InputRightElement>
+          </InputGroup>
               <Button type='submit' colorScheme='teal'>
                 Editar Meu Dados
               </Button>
