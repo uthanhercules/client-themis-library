@@ -14,3 +14,7 @@ export const createToken = (jwt: string) => {
 export const setAdminId = (id: string) => {
   return localStorage.setItem('adminId', id);
 };
+
+export const getAdminId = () => {
+  return localStorage.getItem('adminId');
+};

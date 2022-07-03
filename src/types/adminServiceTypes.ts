@@ -8,3 +8,10 @@ export interface INewPassword {
   password: string;
   recoveryKey: string;
 }
+
+export interface IEditAdmin {
+  id: string;
+  login: string;
+  email: string;
+  password: string;
+}

@@ -43,7 +43,7 @@ function Home() {
 
   if (newProcedure) return <Navigate to={`/processos/novo`} />;
   if (newClient) return <Navigate to={`/clientes/novo`} />;
-  if (editMyData) return <Navigate to={`/clientes/novo`} />;
+  if (editMyData) return <Navigate to={`/admin/editar`} />;
 
   return (
     <article className='home'>
