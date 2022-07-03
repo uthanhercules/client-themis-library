@@ -45,4 +45,25 @@ const deleteProcedure = async (data: IDeleteProcedureData) => {
   return { data: responseData, ok: response.ok };
 };
 
-export const procedureService = { getUniqueProcedures, deleteProcedure };
+const getLastProcedures = async () => {
+  const userToken = getToken();
+
+  if (!userToken)
+    return {
+      data: 'Você precisa estar logado para fazer isso',
+      ok: false,
+    };
+
+  const response = await fetch(`${BASE_URL}/procedure/list-recent`, {
+    method: 'GET',
+    headers: {
+      'Content-type': 'application/json',
+      userToken,
+    },
+  });
+
+  const responseData = await response.json();
+  return { data: responseData, ok: response.ok };
+};
+
+export const procedureService = { getUniqueProcedures, deleteProcedure, getLastProcedures };

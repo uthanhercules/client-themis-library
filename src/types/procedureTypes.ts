@@ -9,3 +9,10 @@ export interface IProcedure {
 export interface IDeleteProcedureData {
   procedure_number: string;
 }
+
+export interface ILastProcedure {
+  procedure_number: string;
+  customer_name: string;
+  name: string;
+  updated: string;
+}
