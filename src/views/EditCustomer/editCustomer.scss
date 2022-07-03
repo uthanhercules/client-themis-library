@@ -1,0 +1,18 @@
+@import '../../styles/variables';
+@import '../../styles/mixins';
+
+.edit-customer {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  margin-top: 64px;
+
+  .content {
+    width: 1080px;
+
+    h1 {
+      color: $udev-blue;
+    }
+  }
+}

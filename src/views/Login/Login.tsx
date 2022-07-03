@@ -13,6 +13,7 @@ import { adminService } from '../../services/adminService';
 import './login.scss';
 import { toast } from 'react-toastify';
 import { createToken, setAdminId } from '../../utils/localStorage';
+import { IApiResponse } from '../../types/routeTypes';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -27,7 +28,7 @@ const Login = () => {
       return toast.error('Todos os campos são obrigatórios.');
     }
 
-    const api: any = await adminService.login({
+    const api: IApiResponse = await adminService.login({
       login: username,
       password,
     });
