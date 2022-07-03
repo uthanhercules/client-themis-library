@@ -41,7 +41,7 @@ const editAdmin = async (data: IEditAdmin) => {
       ok: false,
     };
 
-  const response = await fetch(`${BASE_URL}/admin`, {
+  const response = await fetch(`${BASE_URL}/admin/update`, {
     method: 'PUT',
     body: JSON.stringify(data),
     headers: {
