@@ -6,27 +6,29 @@
   justify-content: center;
   max-width: 100vw;
   height: 100vh;
-  margin-top: 64px;
+  padding-top: 90px;
+  background-color: #2c3049;
 
   .content {
     width: 1080px;
 
     h1 {
-      color: $udev-blue;
-
-      margin-bottom: 53px;
+      font-size: 24px;
+      color: $success;
+      margin-bottom: 32px;
     }
 
     .action-buttons {
       display: flex;
       align-items: center;
       gap: 16px;
+      margin-bottom: 53px;
     }
 
     h2 {
-      color: $udev-blue;
-
-      margin: 32px 0;
+      font-size: 20px;
+      color: $success;
+      margin-bottom: 10px;
     }
   }
 }

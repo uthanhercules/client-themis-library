@@ -1,5 +1,10 @@
 import { verifyAuth } from '../../services/authService';
 import { Navigate } from 'react-router-dom';
+import ActionButton from './components/ActionButton/ActionButton';
+import NewCustomerIcon from '../../assets/newClient.svg';
+import NewProcedureIcon from '../../assets/newLawsuit.svg';
+import EditAdminDataIcon from '../../assets/editAdminData.svg';
+import ProcedureList from '../../components/ProcedureList/ProcedureList';
 import {
   Heading,
   Table,
@@ -9,7 +14,6 @@ import {
   Th,
   Td,
   TableContainer,
-  Button,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
@@ -50,50 +54,30 @@ function Home() {
       <section className='content'>
         <Heading as='h1'>Painel de Controle</Heading>
         <section className='action-buttons'>
-         <Button 
-         colorScheme='blue'
-         onClick={() => setNewProcedure(true)}
-         >
-          Novo Processo
-         </Button>
-         <Button 
-         colorScheme='blue'
-         onClick={() => setNewClient(true)}
-         >
-          Novo Cliente
-         </Button>
-         <Button 
-         colorScheme='blue'
-         onClick={() => setEditMyData(true)}
-         >
-          Editar meus dados
-         </Button>
+          <ActionButton
+            icon={NewProcedureIcon}
+            alt='Botão para Criar novo Processo'
+            label='Novo Processo'
+            action={() => setNewProcedure(true)}
+            color='#2C99FF'
+          />
+          <ActionButton
+            icon={NewCustomerIcon}
+            alt='Botão para Criar novo Cliente'
+            label='Novo Cliente'
+            action={() => setNewClient(true)}
+            color='#20C997'
+          />
+          <ActionButton
+            icon={EditAdminDataIcon}
+            alt='Botão para Editar seus Dados'
+            label='Editar meus Dados'
+            action={() => setEditMyData(true)}
+            color='#FA8B0C'
+          />
         </section>
         <Heading as='h2'>Últimos processos atualizados</Heading>
-        <TableContainer>
-          <Table variant='striped' colorScheme='teal'>
-            <Thead>
-              <Tr>
-                <Th>Número</Th>
-                <Th>Cliente</Th>
-                <Th>Número do Processo</Th>
-                <Th>Última Alteração</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {lastProceduresList.map((item: ILastProcedure) => {
-                return (
-                  <Tr key={item.procedure_number} className='customer-item'>
-                    <Td>{item.procedure_number}</Td>
-                    <Td>{item.customer_name}</Td>
-                    <Td>{item.name}</Td>
-                    <Td>{item.updated}</Td>
-                  </Tr>
-                );
-              })}
-            </Tbody>
-          </Table>
-        </TableContainer>
+        <ProcedureList lawsuitList={lastProceduresList} />
       </section>
     </article>
   );
