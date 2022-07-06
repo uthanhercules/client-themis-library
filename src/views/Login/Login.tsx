@@ -1,14 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, Navigate } from 'react-router-dom';
 import MainInput from '../../components/MainInput/MainInput';
-import {
-  Heading,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Button,
-  Link,
-} from '@chakra-ui/react';
+import { Heading, Button, Link } from '@chakra-ui/react';
 import { adminService } from '../../services/adminService';
 
 import './login.scss';
@@ -20,7 +13,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [logedIn, setLogedIn] = useState(false);
-  const [show, setShow] = useState(false);
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
