@@ -1,10 +1,10 @@
 import './editAdminData.scss';
-import { 
-  Heading, 
-  Input, 
+import {
+  Heading,
+  Input,
   InputGroup,
-  InputRightElement, 
-  Button 
+  InputRightElement,
+  Button,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
@@ -14,27 +14,27 @@ import { IApiResponse } from '../../types/routeTypes';
 import { getAdminId } from '../../utils/localStorage';
 
 function EditAdminData() {
-    const [login, setLogin] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const [created, setCreated] = useState(false);
-    const [show, setShow] = useState(false);
+  const [created, setCreated] = useState(false);
+  const [show, setShow] = useState(false);
 
-    const id = getAdminId();
+  const id = getAdminId();
 
-    useEffect(() => {
-      loadAdminData();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+  useEffect(() => {
+    loadAdminData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-    if (!id) return <Navigate to='/painel' />;
+  if (!id) return <Navigate to='/painel' />;
 
-    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-      e.preventDefault();
+  const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-      if (!login || !email || !password) {
-        return toast.error('Todos os campos são obrigatórios.');
+    if (!login || !email || !password) {
+      return toast.error('Todos os campos são obrigatórios.');
     }
 
     const api: IApiResponse = await adminService.editAdmin({
@@ -59,25 +59,25 @@ function EditAdminData() {
     setEmail(api.data[0].email);
   };
 
-    return (
-        <article className='edit-admin-data'>
-          {created ? <Navigate to='/painel' /> : null}
-          <section className='content'>
-            <Heading as='h1'>Editar meus dados</Heading>
-            <form onSubmit={handleFormSubmit}>
-              <Input
-                type='text'
-                placeholder='Login'
-                value={login}
-                onChange={(e) => setLogin(e.target.value)}
-              />
-              <Input
-                type='text'
-                placeholder='E-mail'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <InputGroup>
+  return (
+    <article className='edit-admin-data'>
+      {created ? <Navigate to='/painel' /> : null}
+      <section className='content'>
+        <Heading as='h1'>Editar meus dados</Heading>
+        <form onSubmit={handleFormSubmit}>
+          <Input
+            type='text'
+            placeholder='Login'
+            value={login}
+            onChange={(e) => setLogin(e.target.value)}
+          />
+          <Input
+            type='text'
+            placeholder='E-mail'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <InputGroup>
             <Input
               variant='flushed'
               type={show ? 'text' : 'password'}
@@ -91,13 +91,13 @@ function EditAdminData() {
               </Button>
             </InputRightElement>
           </InputGroup>
-              <Button type='submit' colorScheme='teal'>
-                Editar Meu Dados
-              </Button>
-            </form>
-          </section>
-        </article>
-    );
+          <Button type='submit' colorScheme='teal'>
+            Editar Meu Dados
+          </Button>
+        </form>
+      </section>
+    </article>
+  );
 }
 
 export default EditAdminData;

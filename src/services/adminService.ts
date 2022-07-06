@@ -1,8 +1,4 @@
-import { 
-  ILogin, 
-  INewPassword, 
-  IEditAdmin 
-} from '../types/adminServiceTypes';
+import { ILogin, INewPassword, IEditAdmin } from '../types/adminServiceTypes';
 import { getToken } from '../utils/localStorage';
 const BASE_URL = 'https://nuneslisboa.herokuapp.com';
 
@@ -75,9 +71,9 @@ const getAdminById = async (id: string) => {
   return { data: responseData, ok: response.ok };
 };
 
-export const adminService = { 
-  login, 
+export const adminService = {
+  login,
   newPassword,
   editAdmin,
-  getAdminById
+  getAdminById,
 };

@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, Navigate } from 'react-router-dom';
-import {
-  Heading,
-  Input,
-  InputGroup,
-  InputRightElement,
-  Button,
-  Link,
-} from '@chakra-ui/react';
+import MainInput from '../../components/MainInput/MainInput';
+import MainButton from '../../components/MainButton/MainButton';
+import { Heading, Link } from '@chakra-ui/react';
 import { adminService } from '../../services/adminService';
 
 import './login.scss';
@@ -19,7 +14,6 @@ const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [logedIn, setLogedIn] = useState(false);
-  const [show, setShow] = useState(false);
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -46,32 +40,22 @@ const Login = () => {
       <section className='content'>
         <Heading as='h1'>Login</Heading>
         <form className='inputs' onSubmit={(e) => login(e)}>
-          <Input
-            variant='flushed'
+          <MainInput
+            type='text'
             placeholder='Usuário'
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            action={setUsername}
           />
-          <InputGroup>
-            <Input
-              variant='flushed'
-              type={show ? 'text' : 'password'}
-              placeholder='Senha'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <InputRightElement width='4.5rem'>
-              <Button size='sm' onClick={() => setShow(!show)}>
-                {show ? 'Esconder' : 'Mostrar'}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
+          <MainInput
+            type='password'
+            placeholder='Senha'
+            value={password}
+            action={setPassword}
+          />
           <Link as={NavLink} to='/redefinir-senha'>
-            Esqueci minha Senha
+            Esqueci a Senha
           </Link>
-          <Button className='submit-button' type='submit' colorScheme='teal'>
-            Login
-          </Button>
+          <MainButton type='submit' label='Entrar' />
         </form>
       </section>
     </article>

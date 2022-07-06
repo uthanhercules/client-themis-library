@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+
+.lawsuit-list {
+  height: 40px;
+
+  display: grid;
+  grid-template-areas: 'number client name update';
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 0px 23px;
+  background: rgba(31, 34, 51, 0.8);
+
+  text-align: start;
+
+  span {
+    font-size: 16px;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .text-blue {
+    color: $secondary-blue;
+  }
+
+  .text-white {
+    color: #fff;
+  }
+
+  .number {
+    grid-area: number;
+  }
+
+  .client {
+    grid-area: client;
+  }
+
+  .lawsuit-name {
+    grid-area: name;
+  }
+
+  .last-update {
+    grid-area: update;
+  }
+}
+
+.lawsuit-header {
+  display: grid;
+  grid-template-areas: 'number client name update';
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1rem;
+
+  padding: 7px 23px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px 4px 0px 0px;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 15px;
+  letter-spacing: 0.295em;
+  text-transform: uppercase;
+  color: $attention;
+
+  margin-bottom: 7px;
+
+  .number {
+    grid-area: number;
+  }
+
+  .client {
+    grid-area: client;
+  }
+
+  .lawsuit-name {
+    grid-area: name;
+  }
+
+  .last-update {
+    grid-area: update;
+  }
+}
