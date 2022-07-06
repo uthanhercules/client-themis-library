@@ -1,3 +1,4 @@
+import { ICustomer } from './customerTypes';
 import { IProcedure } from './procedureTypes';
 
 export interface IMainInput {
@@ -27,6 +28,13 @@ export interface IProcecdureList {
 
 export interface IProcecdureListDetail {
   lawsuitList: IProcedure[];
+  deleteAction: any;
+  editAction: any;
+  action: any;
+}
+
+export interface ICustomerListDetail {
+  customerList: ICustomer[];
   deleteAction: any;
   editAction: any;
   action: any;

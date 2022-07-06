@@ -1,8 +1,8 @@
 import './procedureListDetail.scss';
 import { Link } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { IProcecdureListDetail } from '../../types/componentType';
-import { IProcedure } from '../../types/procedureTypes';
+import { IProcecdureListDetail } from '../../../types/componentType';
+import { IProcedure } from '../../../types/procedureTypes';
 import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
 
 const ProcedureListDetail = ({
@@ -46,7 +46,7 @@ const ProcedureListDetail = ({
             <button
               onClick={() => {
                 action(item.procedure_number);
-                deleteAction(true);
+                deleteAction(item.procedure_number);
               }}
             >
               <DeleteIcon color='#FF4D4F' />
