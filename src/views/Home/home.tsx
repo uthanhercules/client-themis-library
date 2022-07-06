@@ -5,20 +5,10 @@ import NewCustomerIcon from '../../assets/newClient.svg';
 import NewProcedureIcon from '../../assets/newLawsuit.svg';
 import EditAdminDataIcon from '../../assets/editAdminData.svg';
 import ProcedureList from '../../components/ProcedureList/ProcedureList';
-import {
-  Heading,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-} from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { deleteToken } from '../../utils/localStorage';
-import { ILastProcedure } from '../../types/procedureTypes';
 import { procedureService } from '../../services/procedureService';
 
 import './home.scss';

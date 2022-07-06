@@ -56,7 +56,7 @@ const getLastProcedures = async () => {
     return {
       data: 'Você precisa estar logado para fazer isso',
       ok: false,
-  };
+    };
 
   const response = await fetch(`${BASE_URL}/procedure/list-recent`, {
     method: 'GET',

@@ -1,14 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import {
-  Heading,
-  Link,
-  MenuButton,
-  Menu,
-  MenuList,
-  MenuItem,
-  IconButton,
-} from '@chakra-ui/react';
-import { SettingsIcon } from '@chakra-ui/icons';
+import { Heading, Link } from '@chakra-ui/react';
+import LogoutIcon from '../../assets/logout.svg';
 
 import { deleteToken } from '../../utils/localStorage';
 import { verifyAuth } from '../../services/authService';
@@ -37,18 +29,10 @@ const MainNav = () => {
           <Link as={NavLink} to='/clientes'>
             Clientes
           </Link>
-          <Menu>
-            <MenuButton
-              as={IconButton}
-              aria-label='Options'
-              icon={<SettingsIcon />}
-              variant='outline'
-            />
-            <MenuList>
-              <MenuItem>Meu Perfil</MenuItem>
-              <MenuItem onClick={logout}>Sair</MenuItem>
-            </MenuList>
-          </Menu>
+          <button type='button' className='logout' onClick={logout}>
+            <img src={LogoutIcon} alt='Botão de Sair' />
+            <span>Sair</span>
+          </button>
         </nav>
       </section>
     </article>

@@ -1,7 +1,8 @@
 import './procedureList.scss';
 import { Link } from '@chakra-ui/react';
 import { NavLink } from 'react-router-dom';
-import { IProcecdureList, IProcedureListItem } from '../../types/componentType';
+import { IProcecdureList } from '../../types/componentType';
+import { IProcedure } from '../../types/procedureTypes';
 
 const ProcedureList = ({ lawsuitList }: IProcecdureList) => {
   return (
@@ -12,7 +13,7 @@ const ProcedureList = ({ lawsuitList }: IProcecdureList) => {
         <span className='lawsuit-name'>nome do processo</span>
         <span className='last-update'>última alteração</span>
       </section>
-      {lawsuitList.map((item: IProcedureListItem) => {
+      {lawsuitList.map((item: IProcedure) => {
         return (
           <section key={item.updated} className='lawsuit-list'>
             <Link

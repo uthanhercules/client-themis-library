@@ -1,3 +1,5 @@
+import { IProcedure } from './procedureTypes';
+
 export interface IMainInput {
   action: any;
   placeholder: string;
@@ -20,12 +22,5 @@ export interface IActionButton {
 }
 
 export interface IProcecdureList {
-  lawsuitList: IProcedureListItem[];
-}
-export interface IProcedureListItem {
-  procedure_number: string;
-  customer_id: string;
-  customer_name: string;
-  name: string;
-  updated: string;
+  lawsuitList: IProcedure[];
 }
