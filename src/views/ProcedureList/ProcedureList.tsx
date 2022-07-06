@@ -1,22 +1,12 @@
 import './procedureList.scss';
 import { Navigate } from 'react-router-dom';
-import {
-  Heading,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-  Input,
-  Button,
-} from '@chakra-ui/react';
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
+import { Heading } from '@chakra-ui/react';
+import MainInput from '../../components/MainInput/MainInput';
+import MainButton from '../../components/MainButton/MainButton';
+import ProcedureListDetail from '../../components/ProcedureListDetail/ProcedureListDetail';
 import { useEffect, useState } from 'react';
 import { procedureService } from '../../services/procedureService';
 import { toast } from 'react-toastify';
-import { IProcedure } from '../../types/procedureTypes';
 import { verifyAuth } from '../../services/authService';
 import { deleteToken } from '../../utils/localStorage';
 
@@ -85,60 +75,25 @@ const ProcedureList = () => {
     <article className='procedure-list'>
       <section className='content'>
         <Heading as='h1'>Lista de Processos</Heading>
-        <Input
-          placeholder='Pesquisar Processo'
-          onChange={(e: any) => setSearchProcedure(e.target.value)}
+        <div className='action-bar'>
+          <MainInput
+            type='text'
+            value={searchProcedure}
+            action={setSearchProcedure}
+            placeholder='Pesquisar'
+          />
+          <MainButton
+            type='button'
+            label='Novo processo'
+            action={() => setCreateNew(true)}
+          />
+        </div>
+        <ProcedureListDetail
+          lawsuitList={proceduresList}
+          action={setCurrentId}
+          editAction={setEditProcedure}
+          deleteAction={handleDeleteButton}
         />
-        <Button
-          type='button'
-          colorScheme='teal'
-          onClick={() => setCreateNew(true)}
-        >
-          Criar novo Processo
-        </Button>
-        <TableContainer>
-          <Table variant='striped' colorScheme='teal'>
-            <Thead>
-              <Tr>
-                <Th>Número</Th>
-                <Th>Nome</Th>
-                <Th>Cliente</Th>
-                <Th></Th>
-                <Th></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {proceduresList.map((item: IProcedure) => {
-                return (
-                  <Tr key={item.procedure_number} className='procedure-item'>
-                    <Td>{item.procedure_number}</Td>
-                    <Td>{item.name}</Td>
-                    <Td>{item.customer_name}</Td>
-                    <Td>
-                      <button
-                        onClick={() => {
-                          setCurrentId(item.procedure_number);
-                          setEditProcedure(true);
-                        }}
-                      >
-                        <EditIcon />
-                      </button>
-                    </Td>
-                    <Td>
-                      <button
-                        onClick={() =>
-                          handleDeleteButton(item.procedure_number)
-                        }
-                      >
-                        <DeleteIcon />
-                      </button>
-                    </Td>
-                  </Tr>
-                );
-              })}
-            </Tbody>
-          </Table>
-        </TableContainer>
       </section>
     </article>
   );

@@ -24,3 +24,10 @@ export interface IActionButton {
 export interface IProcecdureList {
   lawsuitList: IProcedure[];
 }
+
+export interface IProcecdureListDetail {
+  lawsuitList: IProcedure[];
+  deleteAction: any;
+  editAction: any;
+  action: any;
+}

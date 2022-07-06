@@ -82,7 +82,7 @@ const CustomerList = () => {
   if (createNew) return <Navigate to={`/clientes/novo`} />;
 
   return (
-    <article className='procedure-list'>
+    <article className='customer-list'>
       <section className='content'>
         <Heading as='h1'>Lista de Clientes</Heading>
         <Input
