@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, Navigate } from 'react-router-dom';
 import MainInput from '../../components/MainInput/MainInput';
-import { Heading, Button, Link } from '@chakra-ui/react';
+import MainButton from '../../components/MainButton/MainButton';
+import { Heading, Link } from '@chakra-ui/react';
 import { adminService } from '../../services/adminService';
 
 import './login.scss';
@@ -54,9 +55,7 @@ const Login = () => {
           <Link as={NavLink} to='/redefinir-senha'>
             Esqueci a Senha
           </Link>
-          <Button className='submit-button' type='submit' colorScheme='teal'>
-            Login
-          </Button>
+          <MainButton type='submit' label='Entrar' />
         </form>
       </section>
     </article>

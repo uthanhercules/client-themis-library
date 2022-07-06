@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { NavLink, Navigate } from 'react-router-dom';
 import MainInput from '../../components/MainInput/MainInput';
-import { Heading, Button, Link } from '@chakra-ui/react';
+import MainButton from '../../components/MainButton/MainButton';
+import { Heading, Link } from '@chakra-ui/react';
 import { adminService } from '../../services/adminService';
 
 import './newPassword.scss';
@@ -40,7 +41,7 @@ const NewPassword = () => {
       {newPassword ? <Navigate to='/painel' /> : null}
       <section className='content'>
         <Heading as='h1'>Redefinir Senha</Heading>
-        <form className='inputs' onSubmit={(e) => resetPassword(e)}>
+        <form className='inputs' onSubmit={(e: any) => resetPassword(e)}>
           <MainInput
             type='text'
             placeholder='Usuário'
@@ -62,9 +63,7 @@ const NewPassword = () => {
           <Link as={NavLink} to='/login'>
             Voltar ao Login
           </Link>
-          <Button className='submit-button' type='submit' colorScheme='teal'>
-            Redefinir Senha
-          </Button>
+          <MainButton type='submit' label='Redefinir Senha' />
         </form>
       </section>
     </article>

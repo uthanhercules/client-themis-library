@@ -4,3 +4,9 @@ export interface IMainInput {
   type: string;
   value: string;
 }
+
+export interface IMainButton {
+  type: 'button' | 'submit' | 'reset' | undefined;
+  label: string;
+  action?: any;
+}
