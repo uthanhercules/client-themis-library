@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink, Navigate } from 'react-router-dom';
+import MainInput from '../../components/MainInput/MainInput';
 import {
   Heading,
   Input,
@@ -48,31 +49,23 @@ const NewPassword = () => {
       <section className='content'>
         <Heading as='h1'>Redefinir Senha</Heading>
         <form className='inputs' onSubmit={(e) => resetPassword(e)}>
-          <Input
-            variant='flushed'
+          <MainInput
+            type='text'
             placeholder='Usuário'
             value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            action={setUsername}
           />
-          <InputGroup>
-            <Input
-              variant='flushed'
-              type={show ? 'text' : 'password'}
-              placeholder='Nova Senha'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            <InputRightElement width='4.5rem'>
-              <Button size='sm' onClick={() => setShow(!show)}>
-                {show ? 'Esconder' : 'Mostrar'}
-              </Button>
-            </InputRightElement>
-          </InputGroup>
-          <Input
-            variant='flushed'
+          <MainInput
+            type='password'
+            placeholder='Nova Senha'
+            value={password}
+            action={setPassword}
+          />
+          <MainInput
+            type='password'
             placeholder='Código de Recuperação'
             value={recoveryKey}
-            onChange={(e) => setRecoveryKey(e.target.value)}
+            action={setRecoveryKey}
           />
           <Link as={NavLink} to='/login'>
             Voltar ao Login
