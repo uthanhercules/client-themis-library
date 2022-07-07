@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { Heading } from '@chakra-ui/react';
 import MainInput from '../../components/MainInput/MainInput';
 import MainButton from '../../components/MainButton/MainButton';
-import ProcedureListDetail from '../../components/ProcedureListDetail/ProcedureListDetail';
+import ProcedureListDetail from './ProcedureListDetail/ProcedureListDetail';
 import { useEffect, useState } from 'react';
 import { procedureService } from '../../services/procedureService';
 import { toast } from 'react-toastify';

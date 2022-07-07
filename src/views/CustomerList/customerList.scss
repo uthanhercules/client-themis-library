@@ -19,6 +19,22 @@
       color: $success;
     }
 
+    .action-bar {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 32px;
+
+      input {
+        width: 300px;
+      }
+
+      button {
+        width: 250px;
+        height: 35px;
+      }
+    }
+
     .hidden {
       display: none;
     }

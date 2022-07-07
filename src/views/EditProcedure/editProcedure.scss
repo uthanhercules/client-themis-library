@@ -13,7 +13,49 @@
     width: 1080px;
 
     h1 {
-      color: $udev-blue;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: $success;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .inputs {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+    }
+
+    .select-input,
+    .g-input,
+    textarea {
+      all: unset;
+      border-radius: 0;
+      background-color: transparent;
+      border: none;
+      font-size: 16px;
+      color: #fff;
+      width: 100%;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $attention;
+      }
+    }
+
+    textarea {
+      padding: 10px;
+      border: 1px solid $secondary-blue;
+    }
+
+    .select-input,
+    .g-input {
+      border-bottom: 1px solid $secondary-blue;
     }
   }
 }

@@ -1,10 +1,10 @@
-@import '../../styles/variables';
+@import '../../../../styles/variables';
 
-.lawsuit-list-detail {
+.customer-list-detail {
   height: 40px;
   display: grid;
-  grid-template-areas: 'number client name edit delete';
-  grid-template-columns: 1fr 1fr 1fr 0.2fr 0.2fr;
+  grid-template-areas: 'fullname email edit delete';
+  grid-template-columns: 1fr 1fr 0.2fr 0.2fr;
   align-items: center;
   gap: 1rem;
   margin-bottom: 7px;
@@ -33,16 +33,12 @@
     color: #fff;
   }
 
-  .number {
-    grid-area: number;
+  .fullname {
+    grid-area: fullname;
   }
 
-  .client {
-    grid-area: client;
-  }
-
-  .lawsuit-name {
-    grid-area: name;
+  .email {
+    grid-area: email;
   }
 }
 
@@ -58,10 +54,10 @@
   display: none;
 }
 
-.lawsuit-header-detail {
+.customer-header-detail {
   display: grid;
-  grid-template-areas: 'number client name edit delete';
-  grid-template-columns: 1fr 1fr 1fr 0.2fr 0.2fr;
+  grid-template-areas: 'fullname email edit delete';
+  grid-template-columns: 1fr 1fr 0.2fr 0.2fr;
   gap: 1rem;
   padding: 7px 23px;
   background: rgba(0, 0, 0, 0.3);

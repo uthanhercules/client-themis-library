@@ -1,22 +1,12 @@
 import './customerList.scss';
 import { Navigate } from 'react-router-dom';
-import {
-  Heading,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  TableContainer,
-  Input,
-  Button,
-} from '@chakra-ui/react';
-import { DeleteIcon, EditIcon } from '@chakra-ui/icons';
+import { Heading } from '@chakra-ui/react';
+import MainInput from '../../components/MainInput/MainInput';
+import MainButton from '../../components/MainButton/MainButton';
+import CustomerListDetail from './components/CustomerListDetail/CustomerListDetail';
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { customerService } from '../../services/customerService';
-import { ICustomer } from '../../types/customerTypes';
 import { verifyAuth } from '../../services/authService';
 import { deleteToken } from '../../utils/localStorage';
 
@@ -85,54 +75,25 @@ const CustomerList = () => {
     <article className='customer-list'>
       <section className='content'>
         <Heading as='h1'>Lista de Clientes</Heading>
-        <Input
-          placeholder='Pesquisar Cliente'
-          onChange={(e: any) => setSearchCustomer(e.target.value)}
+        <div className='action-bar'>
+          <MainInput
+            type='text'
+            value={searchCustomer}
+            action={setSearchCustomer}
+            placeholder='Pesquisar'
+          />
+          <MainButton
+            type='button'
+            label='Novo cliente'
+            action={() => setCreateNew(true)}
+          />
+        </div>
+        <CustomerListDetail
+          customerList={customerList}
+          editAction={setEditCustomer}
+          action={setCurrentId}
+          deleteAction={handleDeleteButton}
         />
-        <Button
-          type='button'
-          colorScheme='teal'
-          onClick={() => setCreateNew(true)}
-        >
-          Criar novo Cliente
-        </Button>
-        <TableContainer>
-          <Table variant='striped' colorScheme='teal'>
-            <Thead>
-              <Tr>
-                <Th>Nome Completo</Th>
-                <Th>E-mail</Th>
-                <Th></Th>
-                <Th></Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {customerList.map((item: ICustomer) => {
-                return (
-                  <Tr key={item.id} className='customer-item'>
-                    <Td>{item.full_name}</Td>
-                    <Td>{item.email}</Td>
-                    <Td>
-                      <button
-                        onClick={() => {
-                          setCurrentId(item.id);
-                          setEditCustomer(true);
-                        }}
-                      >
-                        <EditIcon />
-                      </button>
-                    </Td>
-                    <Td>
-                      <button onClick={() => handleDeleteButton(item.id)}>
-                        <DeleteIcon />
-                      </button>
-                    </Td>
-                  </Tr>
-                );
-              })}
-            </Tbody>
-          </Table>
-        </TableContainer>
       </section>
     </article>
   );

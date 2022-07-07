@@ -1,11 +1,13 @@
 import './editProcedure.scss';
-import { Heading, Input, Button, Textarea } from '@chakra-ui/react';
+import { Heading, Input, Textarea } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useParams } from 'react-router-dom';
 import { procedureService } from '../../services/procedureService';
 import { IApiResponse } from '../../types/routeTypes';
+import MainInput from '../../components/MainInput/MainInput';
+import MainButton from '../../components/MainButton/MainButton';
 
 const EditProcedure = () => {
   const [procedureId, setProcedureId] = useState('');
@@ -71,18 +73,20 @@ const EditProcedure = () => {
       <section className='content'>
         <Heading as='h1'>Editar Processo</Heading>
         <form onSubmit={handleFormSubmit}>
-          <Input
-            type='number'
-            placeholder='Número do Processo*'
-            value={procedureNumber}
-            onChange={(e: any) => setProcedureNumber(e.target.value)}
-          />
-          <Input
-            type='text'
-            placeholder='Nome do Processo*'
-            value={procedureName}
-            onChange={(e: any) => setProcedureName(e.target.value)}
-          />
+          <div className='inputs'>
+            <MainInput
+              type='number'
+              placeholder='Número do Processo*'
+              action={setProcedureNumber}
+              value={procedureNumber}
+            />
+            <MainInput
+              type='text'
+              placeholder='Nome do Processo*'
+              action={setProcedureName}
+              value={procedureName}
+            />
+          </div>
           <Textarea
             placeholder='Descrição do Processo*'
             rows={5}
@@ -92,13 +96,11 @@ const EditProcedure = () => {
           <Input
             className='g-input'
             type='text'
-            placeholder='Links do Drive (Separe-os com vírgulas)'
             value={files}
+            placeholder='Links do Drive (Separe-os com vírgulas)'
             onChange={(e: any) => setFiles(e.target.value.split(','))}
           />
-          <Button type='submit' colorScheme='teal'>
-            Registrar Novo Cliente
-          </Button>
+          <MainButton type='submit' label='Criar Novo Processo' />
         </form>
       </section>
     </article>
