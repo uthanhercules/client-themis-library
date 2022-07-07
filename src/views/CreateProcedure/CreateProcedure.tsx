@@ -1,5 +1,5 @@
 import './createProcedure.scss';
-import { Heading, Input, Button, Select, Textarea } from '@chakra-ui/react';
+import { Heading, Input, Select, Textarea } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
