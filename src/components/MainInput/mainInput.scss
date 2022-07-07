@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.main-input {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #fff;
+  border-bottom: 1px solid $secondary-blue;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $attention;
+  }
+}
