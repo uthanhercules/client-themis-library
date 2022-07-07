@@ -32,8 +32,8 @@ const RouterOutlet = () => {
       <MainNav />
       <Routes>
         <Route element={<Login />}>
-          <Route element={<Login />} path='/' />
           <Route element={<Login />} path='/login' />
+          <Route element={<Login />} path='/' />
         </Route>
 
         <Route element={<NewPassword />} path='/redefinir-senha' />
