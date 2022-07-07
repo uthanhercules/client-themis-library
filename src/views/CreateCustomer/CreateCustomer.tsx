@@ -1,10 +1,12 @@
 import './createCustomer.scss';
-import { Heading, Input, Button } from '@chakra-ui/react';
+import { Heading } from '@chakra-ui/react';
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { customerService } from '../../services/customerService';
 import { IApiResponse } from '../../types/routeTypes';
+import MainInput from '../../components/MainInput/MainInput';
+import MainButton from '../../components/MainButton/MainButton';
 
 const CreateCustomer = () => {
   const [fullName, setFullName] = useState('');
@@ -35,21 +37,21 @@ const CreateCustomer = () => {
       <section className='content'>
         <Heading as='h1'>Criar Novo Cliente</Heading>
         <form onSubmit={handleFormSubmit}>
-          <Input
-            type='text'
-            placeholder='Nome Completo'
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-          />
-          <Input
-            type='text'
-            placeholder='E-mail'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Button type='submit' colorScheme='teal'>
-            Registrar Novo Cliente
-          </Button>
+          <div className='inputs'>
+            <MainInput
+              type='text'
+              placeholder='Nome Completo'
+              value={fullName}
+              action={setFullName}
+            />
+            <MainInput
+              type='text'
+              placeholder='E-mail'
+              value={email}
+              action={setEmail}
+            />
+          </div>
+          <MainButton type='submit' label='Registrar Novo Cliente' />
         </form>
       </section>
     </article>

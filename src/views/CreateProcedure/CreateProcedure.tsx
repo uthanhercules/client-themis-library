@@ -7,6 +7,8 @@ import { customerService } from '../../services/customerService';
 import { ICustomer } from '../../types/customerTypes';
 import { procedureService } from '../../services/procedureService';
 import { IApiResponse } from '../../types/routeTypes';
+import MainInput from '../../components/MainInput/MainInput';
+import MainButton from '../../components/MainButton/MainButton';
 
 const CreateProcedure = () => {
   const [customerId, setCustomerId] = useState('');
@@ -58,33 +60,38 @@ const CreateProcedure = () => {
       <section className='content'>
         <Heading as='h1'>Criar Novo Processo</Heading>
         <form onSubmit={handleFormSubmit}>
-          <Input
-            type='number'
-            placeholder='Número do Processo*'
-            onChange={(e: any) => setProcedureNumber(e.target.value)}
-          />
-          <Input
-            type='text'
-            placeholder='Nome do Processo*'
-            onChange={(e: any) => setProcedureName(e.target.value)}
-          />
-          <Select
-            placeholder='Selecione o Cliente'
-            onChange={(e: any) => {
-              const actualIndex = e.target.options.selectedIndex;
+          <div className='inputs'>
+            <MainInput
+              type='number'
+              placeholder='Número do Processo*'
+              action={setProcedureNumber}
+              value={procedureNumber}
+            />
+            <MainInput
+              type='text'
+              placeholder='Nome do Processo*'
+              action={setProcedureName}
+              value={procedureName}
+            />
+            <Select
+              className='select-input'
+              placeholder='Selecione o Cliente'
+              onChange={(e: any) => {
+                const actualIndex = e.target.options.selectedIndex;
 
-              setCustomerId(e.target.value);
-              setCustomerName(e.target.options[actualIndex].innerText);
-            }}
-          >
-            {customerList.map((item: ICustomer) => {
-              return (
-                <option key={item.id} value={item.id}>
-                  {item.full_name}
-                </option>
-              );
-            })}
-          </Select>
+                setCustomerId(e.target.value);
+                setCustomerName(e.target.options[actualIndex].innerText);
+              }}
+            >
+              {customerList.map((item: ICustomer) => {
+                return (
+                  <option key={item.id} value={item.id}>
+                    {item.full_name}
+                  </option>
+                );
+              })}
+            </Select>
+          </div>
           <Textarea
             placeholder='Descrição do Processo*'
             rows={5}
@@ -96,9 +103,7 @@ const CreateProcedure = () => {
             placeholder='Links do Drive (Separe-os com vírgulas)'
             onChange={(e: any) => setFiles(e.target.value.split(','))}
           />
-          <Button type='submit' colorScheme='teal'>
-            Registrar Novo Cliente
-          </Button>
+          <MainButton type='submit' label='Criar Novo Processo' />
         </form>
       </section>
     </article>

@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ChakraProvider>
-      <ToastContainer />
+      <ToastContainer theme='dark' />
       <RouterOutlet />
     </ChakraProvider>
   </React.StrictMode>
